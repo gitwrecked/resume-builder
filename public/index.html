@@ -1,36 +1,124 @@
-<!DOCTYPE>
-<html data-ng-app="resume_editor">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <title>Contact List App</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/customCSS.css">
+    <!-- JavaScripts-->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0-beta.2/angular.min.js"></script>
     <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.14.3.js"></script>
     <script src="controllers/controller.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <script type="text/javascript" src="javascript/regEx.js"></script>
+    <title>Resume Editor 2.0</title>
 </head>
 
 <body>
-    <div class="container mainContainer" data-ng-controller="appCtrl">
-        HELLO WORLD
+    <!-- Wrap all page content here -->
+    <div id="wrap">
+        <!-- Fixed navbar -->
+        <div class="navbar navbar-default navbar-fixed-top" id="fixed-menu">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+        </div>
+        <div class="spacer">
+            &nbsp;
+        </div>
+        <!-- Begin page content -->
+        <div class="container mainContainer " id="content" data-ng-controller="appCtrl">
+            <div class="form-group">
+                <label for="comment">Professional Summary</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comment">Core Qualifications</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comment">Experience</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+            <div class="form-group" id="test">
+                <label for="comment">Education</label>
+                <textarea class="form-control" rows="5" id="comment">modify this text</textarea>
+            </div>
+            <br>
+            <br>
+            <div id="paste_regEx">
+            </div>
+            <form>
+                <fieldset class="form-group">
+                    <label for="exampleInputFile">Upload a Resume</label>
+                    <input type="file" class="form-control-file" id="exampleInputFile">
+                    <small class="text-muted">This is a future feature not yet developed</small>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <small class="text-muted">We will send your updated resume to this location</small>
+                </fieldset>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> default templet - FREE
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Upgraded template - $5
+                    </label>
+                </div>
+                <!--   <div class="radio disabled">
+    <label>
+      <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+      Option three is disabled
+    </label>
+  </div> -->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Would you like to ..
+                    </label>
+                </div>
+                <button type="submit" onclick="regEx()" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <div id="footer">
+            <div class="container">
+                <p>&nbsp;</p>
+                <p class="lead">Website logo ect</p>
+            </div>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="comment">Professional Summary</label>
-        <textarea class="form-control" rows="5" id="comment"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="comment">Core Qualifications</label>
-        <textarea class="form-control" rows="5" id="comment"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="comment">Experience</label>
-        <textarea class="form-control" rows="5" id="comment"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="comment">Education</label>
-        <textarea class="form-control" rows="5" id="comment"></textarea>
-    </div>
-    <button onclick="submit()">Submit</button>
 </body>
 
 </html>
