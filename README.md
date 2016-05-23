@@ -1,4 +1,4 @@
-## Team: Hells Angels -- subject to change
+## Team: GitWrecked -- subject to change
 
 ### ResumeEditor
 + Resume tool for edit/proofread/format/styles/guidelines
