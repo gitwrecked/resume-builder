@@ -4,7 +4,8 @@
   "description": "Critique Resumes with fast turn around time",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test"  : "echo \"Error: no test specified\" && exit 1",
+    "start" : "node index.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,5 +18,9 @@
     "mongojs": "^2.4.0",
     "morgan": "^1.7.0",
     "nodemon": "^1.9.2"
+  },
+  "engines": {
+    "node": "5.7.1",
+    "npm": "3.6.0"
   }
 }

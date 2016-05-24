@@ -69,3 +69,14 @@
 + [Markdown Cheat Sheet For README.md](https://github.com/adam+p/markdown+here/wiki/Markdown+Cheatsheet)
 + [Git Workflow + Feature Branches](https://www.atlassian.com/git/tutorials/comparing+workflows/feature+branch+workflow)
 + [Sequence Diagram Builder](https://www.websequencediagrams.com/)
++ [Heroku and Node.js](https://scotch.io/tutorials/how-to-deploy-a-node-js-app-to-heroku)
++ [MLab - MongoDB](https://mlab.com/)
+
+### Heroku Deploy
+1. `git remote rm heroku`
+2. `heroku create resume-builder5`
+3. `git add . `
+4. `git commit -m "message"`
+5. `git push heroku branchName:master`
+6. `heroku open`
+7. `heroku logs`
