@@ -1,0 +1,59 @@
+<div class="jumbotron text-center">
+	<div ng-user-info></div>
+    <h1>Form goes here</h1>
+	<p>{{ textVar }}</p>
+	<div class="form-group">
+                <label for="comment">Professional Summary</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comment">Core Qualifications</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="comment">Experience</label>
+                <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+            <div class="form-group" id="test">
+                <label for="comment">Education</label>
+                <textarea class="form-control" rows="5" id="comment">modify this text</textarea>
+            </div>
+            <br>
+            <br>
+            <div id="paste_regEx">
+            </div>
+            <form>
+                <fieldset class="form-group">
+                    <label for="exampleInputFile">Upload a Resume</label>
+                    <input type="file" class="form-control-file" id="exampleInputFile">
+                    <small class="text-muted">This is a future feature not yet developed</small>
+                </fieldset>
+                <fieldset class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                    <small class="text-muted">We will send your updated resume to this location</small>
+                </fieldset>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked> default templet - FREE
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2"> Upgraded template - $5
+                    </label>
+                </div>
+                <!--   <div class="radio disabled">
+    <label>
+      <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+      Option three is disabled
+    </label>
+  </div> -->
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Would you like to ..
+                    </label>
+                </div>
+                <button type="submit" onclick="regEx()" class="btn btn-primary">Submit</button>
+            </form>
+</div>
