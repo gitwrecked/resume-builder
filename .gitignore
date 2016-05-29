@@ -1,5 +1,7 @@
 *sublime*
-/node_modules
 npm-debug.log
+node_modules
+public/libs
 .DS_Store
 /*.env
+*.txt

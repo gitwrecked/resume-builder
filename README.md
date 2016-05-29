@@ -16,10 +16,11 @@
    + Resume Exporter Service 
    + Templates 
 
-### Start Up
-1. Have node.js installed
-2. Execute `npm install` for dependecies
-3. Start command (`npm start` OR `nodemon index.js`)?
+## Installation
+1. Download the repository
+2. Install npm and bower modules: `npm install`
+3. Start node: `node server.js` OR `nodemon server.js` for development
+4. View in browser at http://localhost:3001
 
 ### Initial workflow
 1. Client Form submission
@@ -35,7 +36,7 @@
 ### Milestones:
 + [x] git connectivity and workflow
 + [x] Wireframe (project framework)
-+ [ ] Team details (name, brand)
++ [x] Team details (name, brand)
 + [ ] Domain research and documentation (compiled list of resume rules/tips/dosAndDonts)
 + [ ] Fleshed out ui form
 + [ ] Authenticated requests to app
@@ -43,10 +44,10 @@
 + [ ] Resume building api
 + [ ] Resume editing api
 + [ ] Exportable templates
-+ [ ] Host on server
++ [x] Host on server
 
 ### TODO: Groundwork
-+ [ ] Team details (name, brand)
++ [x] Team details (name, brand)
 + [ ] Domain research and documentation (compiled list of resume rules/tips/dosAndDonts)
 
 ### TODO: 1. Client Form submission
@@ -72,11 +73,18 @@
 + [Heroku and Node.js](https://scotch.io/tutorials/how-to-deploy-a-node-js-app-to-heroku)
 + [MLab - MongoDB](https://mlab.com/)
 
-### Heroku Deploy
-1. `git remote rm heroku`
-2. `heroku create resume-builder5`
-3. `git add . `
-4. `git commit -m "message"`
+### Heroku 
+#### Deploy
+1. `heroku login` 
+2. `git add . `
+3. `git commit -m "message"`
+4. `heroku config:set MONGOLAB_URI=// url : 'mongodb://<username>:<password>@ds011933.mlab.com:11933/gw_resume-builder'
 5. `git push heroku branchName:master`
 6. `heroku open`
 7. `heroku logs`
+
+#### Remove app and fresh deploy
+1. `git remote rm heroku`
+2. `heroku create resume-builder5`
+
+View app at `https://resume-builder5.herokuapp.com/`
