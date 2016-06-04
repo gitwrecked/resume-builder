@@ -1,23 +1,38 @@
 {
-  "name": "resume_editor",
-  "version": "1.0.0",
-  "description": "Critique Resumes with fast turn around time",
-  "main": "index.js",
-  "scripts": {
-    "test"  : "echo \"Error: no test specified\" && exit 1",
-    "start" : "node index.js"
+  "name": "resume-builder",
+  "title": "Resume Builder",
+  "version": "0.1.0",
+  "description": "critique resumes with fast turn around time",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gitwrecked/resume-builder.git"
   },
-  "author": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prestart": "npm install",
+    "start": "node server.js",
+    "postinstall": "bower install"
+  },
+  "author": "gitwrecked",
   "license": "ISC",
   "dependencies": {
+    "angoose": "^0.3.21",
     "angular": "^1.5.5",
     "angular-ui-bootstrap": "^1.3.2",
     "body-parser": "^1.15.1",
+    "bower": "^1.7.9",
     "express": "^4.13.4",
+    "gulp": "^3.9.1",
     "jsonwebtoken": "^7.0.0",
-    "mongojs": "^2.4.0",
+    "material-design-lite": "^1.1.3",
+    "method-override": "^2.3.6",
+    "mongodb": "^2.1.19",
+    "mongood": "0.0.5",
+    "mongoose": "^4.4.19",
     "morgan": "^1.7.0",
-    "nodemon": "^1.9.2"
+    "nodemon": "^1.9.2",
+    "passport": "^0.3.2"
   },
   "engines": {
     "node": "5.7.1",

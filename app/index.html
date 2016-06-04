@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<base href="/">
+	<title>Resume Builder</title>
+	<!-- css -->
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.css">
+	<link rel="stylesheet" href="css/style.css">
+	<!-- js -->
+	<script src="libs/angular/angular.min.js"></script>
+	<script src="libs/angular-route/angular-route.min.js"></script>
+	<script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+	<!-- angular -->
+	<script src="ng-modules/upload/upload.controller.js"></script>
+	<script src="ng-modules/login/login.controller.js"></script>
+	<script src="ng-modules/register/register.controller.js"></script>
+	<script src="ng-modules/app.routes.js"></script>
+	<script src="resumebuilder.app.js"></script>
+</head>
+<body ng-app="resumebuilder.app">
+	<!-- include nav template -->
+	<div ng-include="'ng-modules/partials/header.partial.html'"></div>
+	<div class="container app-body">
+		<!-- dynamic content served up with angular -->
+		<div ui-view class="app-content"></div>			
+	</div>
+	<!-- include footer template -->	
+	<div ng-include="'ng-modules/partials/footer.partial.html'"></div>
+</body>
+</html>

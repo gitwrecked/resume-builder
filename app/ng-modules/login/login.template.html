@@ -1,0 +1,13 @@
+<div id="template-login">
+	<form id="form-login" name="formLogin" ng-submit="login(formLogin.$valid)" novalidate>
+		<fieldset ng-disabled="loggingin">
+			<input type="text" placeholder="email" ng-model="user.email"></input>
+			<input type="text" placeholder="password" ng-model="user.password"></input>
+			<button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-sign-in"></i>&nbsp;Login</button>
+		</fieldset>
+		<div class="text-center">{{message}}</div>
+	</form>
+	<div class="text-center">
+    	{{ user }}
+	</div>
+</div>

@@ -1,0 +1,27 @@
+{
+  "name": "resume-builder",
+  "description": "critique resumes with fast turn around time",
+  "main": "index.js",
+  "authors": [
+    "Arun Varghese <avarghese@spireon.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "latest",
+    "font-awesome": "latest",
+    "animate.css": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "material-design-lite": "^1.1.3",
+    "wow": "^1.1.2",
+    "angular-ui-router": "ui-router#^0.3.0"
+  }
+}
