@@ -1,5 +1,7 @@
-// modules 
-var express        = require('express');
+// server ===================
+// node server with express routing implementation
+// used to specify configs, static files, routes, etc.
+var express        = require('express'); // modules 
 var app            = express();
 var mongoose       = require('mongoose');
 var bodyParser     = require('body-parser');
@@ -8,8 +10,7 @@ var path 		   = require('path');
 var project 	   = require('./package');
 var config 		   = require('./config');
 
-// connect to mongo lab if server config var exists
-var mongoURI = process.env.MONGOLAB_URI ? process.env.MONGOLAB_URI : config.db.local;
+var mongoURI = process.env.MONGOLAB_URI ? process.env.MONGOLAB_URI : config.db.local; // connect to mongo lab if server config var exists
 mongoose.connect(mongoURI);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

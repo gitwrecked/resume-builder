@@ -1,3 +1,6 @@
+// register controller ===================
+// angular controller to handle user registration, including routes to call backend api
+// front end does not connect to mongo libraries, therefore api routes needed
 angular.module('register.controller', []).controller('register.controller', ['$scope', '$http', function($scope, $http) {
 	$scope.user = {};
 	$scope.message;
@@ -8,24 +11,12 @@ angular.module('register.controller', []).controller('register.controller', ['$s
 			return;
 		}
 		// make http request to node api routes as front doesn't have support for mongoose/mongo
-       $http.post('/api/users', $scope.user).then(
-    		//first function handles success
+       $http.post('/api/user/register', $scope.user).then(
     		function(res) {
-                console.log("mongo return code: " + res.data.code);
-    			if(res.data.code === 0){
-    				$scope.message = "registered " + $scope.user.email;
-    			} else {
-    				switch(res.data.code) {
-    					case 11000:
-    						$scope.message = "user already exists";
-    						break;
-    					default:
-    						$scope.message = "failed to register user";
-    						break;
-    				}
-                    $scope.registering = false; 
+    			$scope.message = res.data.msg;
+                if(!res.data.success){
+    				$scope.registering = false; 
     			}
-
        		}
     	);
 	};
