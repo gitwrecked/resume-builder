@@ -9,4 +9,7 @@ angular.module('resumebuilder.app', [
 	'upload.controller',
 	'login.controller',
 	'register.controller'
-	]);
+	]) 
+	.config(function() { // initialize javascript libraries here if needed
+        new WOW().init();
+    });

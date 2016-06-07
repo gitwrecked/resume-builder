@@ -1,33 +1,35 @@
 <!-- template for upload, associated controller in same folder -->
-<div>
-    <form id="form-upload" name="formUpload" class="text-center" ng-submit="upload()" novalidate>  
+<div id="template-upload" class="mdl-shadow--6dp template">
+    <form id="form-upload" name="formUpload" ng-submit="upload()" class="text-center wow fadeIn" data-wow-delay=".1s" novalidate>  
         <h1>Resume Upload Form</h1>
         <fieldset ng-disabled="uploading">
-            <div class="form-group">
+            <div class="form-group wow fadeInUp" data-wow-delay=".1s">
                 <label>Professional Summary</label>
-                <textarea class="form-control" rows="5" ng-model="resume.summary"></textarea>            
+                <textarea rows="5" ng-model="resume.summary" class="form-control mdl-textfield__input"></textarea>            
             </div>
-            <div class="form-group">
+            <div class="form-group wow fadeInUp" data-wow-delay=".1s">
                 <label>Core Qualifications</label>
-                <textarea class="form-control" rows="5" ng-model="resume.qualifications"></textarea>
+                <textarea ows="5" ng-model="resume.qualifications" class="form-control mdl-textfield__input"></textarea>
             </div>
-            <div class="form-group">
+            <div class="form-group wow fadeInUp" data-wow-delay=".1s">
                 <label>Experience</label>
-                <textarea class="form-control" rows="5" ng-model="resume.experience"></textarea>
+                <textarea rows="5" ng-model="resume.experience" class="form-control mdl-textfield__input"></textarea>
             </div>
-            <div class="form-group" id="test">
+            <div class="form-group wow fadeInUp" data-wow-delay=".1s">
                 <label>Education</label>
-                <textarea class="form-control" rows="5" ng-model="resume.education"></textarea>
+                <textarea rows="5" ng-model="resume.education" class="form-control mdl-textfield__input"></textarea>
             </div>          
-            <div>
-                <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-upload"></i>&nbsp;Upload</button>
+            <div class="wow fadeInUp">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit" class="form-control mdl-textfield__input">
+                    <i class="fa fa-fw fa-upload"></i>&nbsp;Upload
+                </button>
             </div>
         </fieldset>
         <br>
         <div>{{ message }}</div>
     </form>
     <br>
-    <div class="text-center">
+    <div class="text-center binding-view">
         {{ resume }}
     </div>
 </div>
