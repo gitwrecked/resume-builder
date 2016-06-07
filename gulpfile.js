@@ -21,9 +21,7 @@ gulp.task('css', function() { // task to compile scss to css
 
 gulp.task('jshint', function() { // task to generate output from code analysis
   return gulp.src([
-      'app/components/**/*.js',
-      'app/models/**/*.js',
-      'app/*.js',
+      'app/js/**/*.js',
       '*.js'
       ])
 			.pipe(jshint())
@@ -47,25 +45,25 @@ gulp.task('reload', function() { // task to reload browser
 
 gulp.task('test', function(){ // task to load karma/jasmine and run specs
   new karma({
-    configFile: __dirname + '/karma.conf.js',
+    configFile: __dirname + '/config/karma.conf.js',
     singleRun: true
   }).start();
 });
 
-gulp.task('inject', function(){
+gulp.task('inject', function(){ // task to read css and lib directories, add css/js import statements to html pages
   return gulp.src('./app/index.html')
            .pipe(inject(
                gulp.src([
-                  './app/components/**/*.js',
+                  './app/js/**/*.js',
                   './app/services/**/*.js',
-                  './app/libs/**/*min.js',
-                  '!'
+                  './app/lib/**/*min.js',
+                  '!./app/js/models/*.js'
                 ]).pipe(angularfs(),{read: false}), {relative: true}))
            .pipe(gulp.dest('./app'))
            .pipe(inject(
                gulp.src([
                   './app/css/**/*.css',
-                  './app/libs/**/*min.css',
+                  './app/lib/**/*min.css',
                   '!'
                 ]), {relative: true}))
            .pipe(gulp.dest('./app'));
@@ -75,7 +73,7 @@ gulp.task('watch', function() { // task to run styles task on file change
     gulp.watch('scss/**/*.scss',['css','reload']);
     gulp.watch([
       'app/**/*.html',
-      'app/**/*.js'],
+      'app/js/*.js'],
     ['reload']);
     gulp.watch('test/**/*.js', ['test']);
 });

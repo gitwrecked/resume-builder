@@ -2,8 +2,8 @@
 // restful api routes for any backend calls
 // front end does not connect to mongo libraries, therefore api routes needed
 var path 	    = require('path');
-var User		= require(path.join(__dirname + '/app/models/user'));
-var Resume 		= require(path.join(__dirname + '/app/models/resume'));
+var User		= require(path.join(__dirname + '/app/js/models/user'));
+var Resume 		= require(path.join(__dirname + '/app/js/models/resume'));
 module.exports = function(app) {
 	app.get('/', function(req, res) { // basic route to display landing
 	  res.sendFile(path.join(__dirname + '/app/index.html'));

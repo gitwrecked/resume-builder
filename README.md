@@ -23,17 +23,24 @@
 │   ├── index.html #main html page
 │   ├── resumebuilder.app.js #angular bootstrap file
 │   ├── css #compiled with gulp from /scss
-│   ├── images 
+│   ├── images #any images to save locally
 │   ├── libs #vendor libraries downloaded with bower
-│   ├── models #mongoose schemas
-│   ├── partials #templates for headers/footers/etc
-│   ├── services #services
-│   └── components #angular files
-│       ├── feature #controller/template/directives per component
-│       │   ├── controller.js
-│       │   ├── directives.js
-│       │   └── template.html
-│       └── anotherFeature
+│   ├── templates #templates for headers/footers/etc.
+│   └── js #all js files
+│       ├── controllers #controllers
+│       │   ├── controller1.js
+│       │   └── controller2.js
+│       ├── models #mongo schemas
+│       │   ├── model1.js
+│       │   └── model2.js
+│       ├── services #services
+│       │   ├── service1.js
+│       │   └── service2.js
+│       ├── directives #directives
+│       │   ├── directive1.js
+│       │   └── directive2.js
+│       ├── app.routes.js #angular routes using ui.router
+│       └── resumebuilder.app.js #angular bootstrap
 ├── jshint
 │   └── output.html #code analysis output
 ├── test
@@ -46,12 +53,13 @@
 ├── scss
 │   ├── style.scss #scss files that compile into `/app/css/style.css`
 │   └── _partial.scss #importable scss files
+├── config
+│   ├── config.json #project configs for server/database
+│   └── karma.conf.js #test runner configuration
 ├── api.routes.js #backend api routes
 ├── bower.json #front end components (bootstrap,angular,font-awesome,etc.)
 ├── .bowerrc #configuration for bower, output directory
-├── config.json #project configs for server/database
 ├── gulpfile.js #task manager, dev only
-├── karma.conf.js #test runner configuration
 ├── package.json #backend components, download with `npm install`
 ├── Procfile #heroku app type identifier
 ├── README.md #readme

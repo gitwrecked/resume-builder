@@ -8,7 +8,7 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var path 		   = require('path');
 var project 	   = require('./package');
-var config 		   = require('./config');
+var config 		   = require('./config/config');
 
 var mongoURI = process.env.MONGOLAB_URI ? process.env.MONGOLAB_URI : config.db.local; // connect to mongo lab if server config var exists
 mongoose.connect(mongoURI);

@@ -5,32 +5,32 @@ angular.module('app.routes', []).config(['$stateProvider', '$urlRouterProvider',
 	$stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: 'components/upload/upload.template.html',
+            templateUrl: 'templates/upload.template.html',
             controller: 'upload.controller'
         })
         .state('login', {
             url: '/login',
-            templateUrl: 'components/login/login.template.html',
+            templateUrl: 'templates/login.template.html',
             controller: 'login.controller' 
         })
         .state('register', {
             url: '/register',
-            templateUrl: 'components/register/register.template.html',
+            templateUrl: 'templates/register.template.html',
             controller: 'register.controller' 
         })
         .state('upload', {
             url: '/upload',
-            templateUrl: 'components/upload/upload.template.html',
+            templateUrl: 'templates/upload.template.html',
             controller: 'upload.controller'
         })
         .state('home.register', {
             url: '/register',
-            templateUrl: 'components/register/register.template.html',
+            templateUrl: 'templates/register.template.html',
             controller: 'register.controller'     
         })
         .state('home.login', {
             url: '/login',
-            templateUrl: 'components/login/login.template.html',
+            templateUrl: 'templates/login.template.html',
             controller: 'login.controller'     
         });
 
