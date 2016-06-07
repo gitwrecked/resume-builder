@@ -2,31 +2,42 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<base href="/">
 	<title>Resume Builder</title>
-	<!-- css -->
-	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.css">
+	<!-- inject:css -->
 	<link rel="stylesheet" href="css/style.css">
-	<!-- js -->
+	<link rel="stylesheet" href="libs/animate.css/animate.min.css">
+	<link rel="stylesheet" href="libs/material-design-lite/material.min.css">
+	<link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<!-- endinject -->
+	<!-- inject:js -->
+	<script src="libs/jquery/dist/jquery.min.js"></script>
 	<script src="libs/angular/angular.min.js"></script>
+	<script src="libs/material-design-lite/material.min.js"></script>
 	<script src="libs/angular-route/angular-route.min.js"></script>
+	<script src="libs/jquery/external/sizzle/dist/sizzle.min.js"></script>
+	<script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="libs/wow/dist/wow.min.js"></script>
 	<script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
-	<!-- angular -->
-	<script src="ng-modules/upload/upload.controller.js"></script>
-	<script src="ng-modules/login/login.controller.js"></script>
-	<script src="ng-modules/register/register.controller.js"></script>
-	<script src="ng-modules/app.routes.js"></script>
+	<script src="services/user.service.js"></script>
+	<script src="components/upload/upload.controller.js"></script>
+	<script src="components/register/register.controller.js"></script>
+	<script src="components/login/login.controller.js"></script>
+	<script src="components/app.routes.js"></script>
+	<!-- endinject -->
 	<script src="resumebuilder.app.js"></script>
 </head>
 <body ng-app="resumebuilder.app">
 	<!-- include nav template -->
-	<div ng-include="'ng-modules/partials/header.partial.html'"></div>
+	<div ng-include="'partials/header.partial.html'"></div>
 	<div class="container app-body">
 		<!-- dynamic content served up with angular -->
 		<div ui-view class="app-content"></div>			
 	</div>
 	<!-- include footer template -->	
-	<div ng-include="'ng-modules/partials/footer.partial.html'"></div>
+	<div ng-include="'partials/footer.partial.html'"></div>
 </body>
 </html>

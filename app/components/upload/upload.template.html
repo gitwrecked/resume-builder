@@ -1,0 +1,33 @@
+<!-- template for upload, associated controller in same folder -->
+<div>
+    <form id="form-upload" name="formUpload" class="text-center" ng-submit="upload()" novalidate>  
+        <h1>Resume Upload Form</h1>
+        <fieldset ng-disabled="uploading">
+            <div class="form-group">
+                <label>Professional Summary</label>
+                <textarea class="form-control" rows="5" ng-model="resume.summary"></textarea>            
+            </div>
+            <div class="form-group">
+                <label>Core Qualifications</label>
+                <textarea class="form-control" rows="5" ng-model="resume.qualifications"></textarea>
+            </div>
+            <div class="form-group">
+                <label>Experience</label>
+                <textarea class="form-control" rows="5" ng-model="resume.experience"></textarea>
+            </div>
+            <div class="form-group" id="test">
+                <label>Education</label>
+                <textarea class="form-control" rows="5" ng-model="resume.education"></textarea>
+            </div>          
+            <div>
+                <button class="btn btn-primary" type="submit"><i class="fa fa-fw fa-upload"></i>&nbsp;Upload</button>
+            </div>
+        </fieldset>
+        <br>
+        <div>{{ message }}</div>
+    </form>
+    <br>
+    <div class="text-center">
+        {{ resume }}
+    </div>
+</div>

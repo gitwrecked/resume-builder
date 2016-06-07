@@ -30,4 +30,4 @@ var port = process.env.PORT || config.server.listenPort; // set our port
 app.listen(port); // start app 	
 console.log('view in browser at http://localhost:' + port); // inform user
 
-exports = module.exports = app; // expose app
+exports = module.exports = app; // expose app 

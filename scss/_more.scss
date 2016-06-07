@@ -1,0 +1,44 @@
+a {
+  cursor: pointer;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+form {
+  padding: 5px;
+}
+.app-body {
+  min-height: 100%;
+}
+
+.navbar {
+  border-radius: 0px !important;
+}
+
+#template-register, #template-login {
+  width: 350px;
+  margin: auto;
+}
+.app-content {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+#template-register input, 
+#template-register button,
+#template-login input, 
+#template-login button    {
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+footer {
+  margin-top: 10px;
+  background: #222;
+  color: grey;
+  padding: 20px 10px;
+}

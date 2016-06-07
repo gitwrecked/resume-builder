@@ -1,6 +1,6 @@
-// register service ===================
+// user service ===================
 // angular service to handle user registration, 
-// ideally this service should make api calls to register user, and return results to controller
+// ideally this service should make api calls to user api, and return results to controller
 angular.module('resumebuilder.app', []).factory('registerService', ['$http', function($http) {
 	 return {
         // call to get all users
