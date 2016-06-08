@@ -1,4 +1,4 @@
-## Team: GitWrecked -- subject to change
+## Team: GitWrecked
 
 ### ResumeEditor
 + Resume tool for edit/proofread/format/styles/guidelines
@@ -16,11 +16,74 @@
    + Resume Exporter Service 
    + Templates 
 
+## directory Structure - #feature based modularization
+```
+.
+├── app
+│   ├── index.html #main html page
+│   ├── css #compiled with gulp from /scss
+│   ├── assets #any static files, images,fonts,etc.
+│   ├── libs #vendor libraries downloaded with bower
+│   └── js #all js files
+│       ├── controllers #controllers
+│       │   ├── controller1.js
+│       │   └── controller2.js
+│       ├── models #mongo schemas
+│       │   ├── model1.js
+│       │   └── model2.js
+│       ├── services #services
+│       │   ├── service1.js
+│       │   └── service2.js
+│       ├── directives #directives
+│       │   ├── directive1.js
+│       │   └── directive2.js
+│       ├── filters #filters
+│       │   ├── filter1.js
+│       │   └── filter2.js
+│       ├── routes #angular routes
+│       │   └── app.routes.js #angular routes using ui.router
+│       ├── features #feature based hiearchy
+│       │   ├── feature1
+│       │   │   ├── feature1.controller.js
+│       │   │   └── feature1.template.html
+│       │   └── feature2
+│       │       ├── feature2.controller.js
+│       │       └── feature2.template.html
+│       └── resumebuilder.app.js #angular bootstrap
+├── jshint
+│   └── output.html #code analysis output
+├── test
+│   ├── report 
+│   │   └── index.html #test report output
+│   ├── controller #controller specs
+│   └── services #service specs
+├── node_modules #all modules listed in `package.json`
+├── scss
+│   ├── style.scss #scss files that compile into `/app/css/style.css`
+│   └── _partial.scss #importable scss files
+├── config
+│   ├── config.json #project configs for server/database
+│   └── karma.conf.js #test runner configuration
+├── api.routes.js #backend api routes
+├── bower.json #front end components (bootstrap,angular,font-awesome,etc.)
+├── .bowerrc #configuration for bower, output directory
+├── gulpfile.js #task manager, dev only
+├── package.json #backend components, download with `npm install`
+├── procfile #heroku app type identifier
+├── readme.md #readme
+└── server.js #node server
+```
+
 ## Installation
-1. Download the repository
-2. Install npm and bower modules: `npm install`
-3. Start node: `node server.js` OR `nodemon server.js` for development
-4. View in browser at http://localhost:3001
+0. Prerequisites global installs: `git, mongo, node, npm`
+1.`sudo npm install -g bower gulp nodemon`
+2. Clone or download: `https://github.com/gitwrecked/resume-builder.git`
+3. Install npm and bower modules: `npm install`
+5. Run `gulp css`, output located in `/app/css/style.css`
+6. Run `gulp inject` if necessary, injects import statements into head tag of `/app/index.html`
+7. Run `gulp test` , ouput located in `/test/reports/output.html`
+8. Start node *normal*: `node server.js` *dev*: `nodemon server.js` *styling*: `gulp start`
+9. View in browser at http://localhost:3001
 
 ### Initial workflow
 1. Client Form submission
@@ -72,6 +135,8 @@
 + [Sequence Diagram Builder](https://www.websequencediagrams.com/)
 + [Heroku and Node.js](https://scotch.io/tutorials/how-to-deploy-a-node-js-app-to-heroku)
 + [MLab - MongoDB](https://mlab.com/)
++ [Material Palette](https://www.materialpalette.com/)
++ [Material Design Lite](https://getmdl.io/components/index.html)
 
 ### Heroku 
 #### Deploy

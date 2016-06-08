@@ -1,0 +1,22 @@
+<!-- template for login form, associated controller in same folder -->
+<div id="template-login" class="mdl-card mdl-shadow--6dp template">
+	<form id="form-login" name="formLogin" ng-submit="login()" class="text-center" novalidate>
+		<fieldset ng-disabled="loggingin">
+			<div class="wow fadeInUp mdl-textfield">
+				<input type="text" placeholder="email" ng-model="user.email" class="mdl-textfield__input" data-wow-delay="0s"></input>
+			</div>
+			<div class="wow fadeInUp mdl-textfield">
+				<input type="text" placeholder="password" ng-model="user.password" class="wow fadeInUp mdl-textfield__input" data-wow-delay=".1s"></input>
+			</div>
+			<div class="wow fadeInUp text-center" data-wow-delay=".2s">
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+					<i class="fa fa-fw fa-sign-in"></i>&nbsp;Login
+				</button>
+			</div>
+		</fieldset>
+		<div class="text-center">{{message}}</div>
+	</form>
+	<div class="text-center binding-view">
+    	{{ user }}
+	</div>
+</div>
