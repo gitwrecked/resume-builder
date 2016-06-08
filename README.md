@@ -16,16 +16,14 @@
    + Resume Exporter Service 
    + Templates 
 
-## Dir Structure
+## directory Structure - #feature based modularization
 ```
 .
 ├── app
 │   ├── index.html #main html page
-│   ├── resumebuilder.app.js #angular bootstrap file
 │   ├── css #compiled with gulp from /scss
-│   ├── images #any images to save locally
+│   ├── assets #any static files, images,fonts,etc.
 │   ├── libs #vendor libraries downloaded with bower
-│   ├── templates #templates for headers/footers/etc.
 │   └── js #all js files
 │       ├── controllers #controllers
 │       │   ├── controller1.js
@@ -39,7 +37,18 @@
 │       ├── directives #directives
 │       │   ├── directive1.js
 │       │   └── directive2.js
-│       ├── app.routes.js #angular routes using ui.router
+│       ├── filters #filters
+│       │   ├── filter1.js
+│       │   └── filter2.js
+│       ├── routes #angular routes
+│       │   └── app.routes.js #angular routes using ui.router
+│       ├── features #feature based hiearchy
+│       │   ├── feature1
+│       │   │   ├── feature1.controller.js
+│       │   │   └── feature1.template.html
+│       │   └── feature2
+│       │       ├── feature2.controller.js
+│       │       └── feature2.template.html
 │       └── resumebuilder.app.js #angular bootstrap
 ├── jshint
 │   └── output.html #code analysis output
@@ -48,8 +57,7 @@
 │   │   └── index.html #test report output
 │   ├── controller #controller specs
 │   └── services #service specs
-├── node_modules
-│   └── #all modules listed in `package.json`
+├── node_modules #all modules listed in `package.json`
 ├── scss
 │   ├── style.scss #scss files that compile into `/app/css/style.css`
 │   └── _partial.scss #importable scss files
@@ -61,8 +69,8 @@
 ├── .bowerrc #configuration for bower, output directory
 ├── gulpfile.js #task manager, dev only
 ├── package.json #backend components, download with `npm install`
-├── Procfile #heroku app type identifier
-├── README.md #readme
+├── procfile #heroku app type identifier
+├── readme.md #readme
 └── server.js #node server
 ```
 

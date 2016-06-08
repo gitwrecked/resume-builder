@@ -1,8 +1,10 @@
 /* use @import to pull in other partial style sheets */
-/* define variables to here */
+/* palette: define color palette variables here */
+/* base: use for basic styling used throughout app */
 .test {
   color: #B6B6B6; }
 
+/* main: use for any specific stylings */
 .highlight {
   background-color: yellow; }
 

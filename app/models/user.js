@@ -10,7 +10,7 @@ var userSchema = new mongoose.Schema({ // mongoose schema to hold doc structure
 });
 
 userSchema.pre("save",function(next) { // pre save method to check if user already exists
-    mongoose.models["User"].findOne({email : this.email},function(err, user) {
+    mongoose.models.User.findOne({email : this.email},function(err, user) {
         if(user) {
             console.log(user);
             next(new Error("user","email already in use"));

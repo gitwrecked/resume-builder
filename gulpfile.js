@@ -7,10 +7,10 @@ var browserSync  = require('browser-sync').create();
 var autoprefixer = require('gulp-autoprefixer');
 var karma        = require('karma').Server;
 var inject       = require('gulp-inject');
-var angularfs    = require('gulp-angular-filesort')
+var angularfs    = require('gulp-angular-filesort');
 
-gulp.task('default', ['css','test']); // run gulp in terminal to automate
-gulp.task('start', ['init','css','watch']); // run gulp in terminal to automate
+gulp.task('default', ['css','test','jshint']); // run gulp in terminal to automate
+gulp.task('start', ['init','css','test','jshint','watch']); // run gulp in terminal to automate
 
 gulp.task('css', function() { // task to compile scss to css
     gulp.src('scss/**/*.scss')
@@ -21,7 +21,12 @@ gulp.task('css', function() { // task to compile scss to css
 
 gulp.task('jshint', function() { // task to generate output from code analysis
   return gulp.src([
-      'app/js/**/*.js',
+      'app/directives/**/*.js',
+      'app/filters/**/*.js',
+      'app/features/**/*.js',
+      'app/models/**/*.js',
+      'app/routes/**/*.js',
+      'app/services/**/*.js',
       '*.js'
       ])
 			.pipe(jshint())
@@ -54,8 +59,12 @@ gulp.task('inject', function(){ // task to read css and lib directories, add css
   return gulp.src('./app/index.html')
            .pipe(inject(
                gulp.src([
-                  './app/js/**/*.js',
+                  './app/directives/**/*.js',
+                  './app/features/**/*.js',
+                  './app/filters/**/*.js',
                   './app/services/**/*.js',
+                  './app/routes/**/*.js',
+                  './app/*.js',
                   './app/lib/**/*min.js',
                   '!./app/js/models/*.js'
                 ]).pipe(angularfs(),{read: false}), {relative: true}))
@@ -73,7 +82,7 @@ gulp.task('watch', function() { // task to run styles task on file change
     gulp.watch('scss/**/*.scss',['css','reload']);
     gulp.watch([
       'app/**/*.html',
-      'app/js/*.js'],
+      'app/**/*.js'],
     ['reload']);
     gulp.watch('test/**/*.js', ['test']);
 });

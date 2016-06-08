@@ -15,5 +15,5 @@ angular.module('resumebuilder.app', []).factory('registerService', ['$http', fun
         delete : function(id) {
             return $http.delete('/api/users/' + id);
         }
-    }       
+    };       
 }]);
