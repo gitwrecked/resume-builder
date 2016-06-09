@@ -13,10 +13,10 @@ gulp.task('default', ['css','test','jshint']); // run gulp in terminal to automa
 gulp.task('start', ['init','css','test','jshint','watch']); // run gulp in terminal to automate
 
 gulp.task('css', function() { // task to compile scss to css
-    gulp.src('scss/**/*.scss')
+    gulp.src('app/css/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer('last 2 versions'))
-        .pipe(gulp.dest('app/css/'));
+        .pipe(gulp.dest('app'));
 });
 
 gulp.task('jshint', function() { // task to generate output from code analysis
