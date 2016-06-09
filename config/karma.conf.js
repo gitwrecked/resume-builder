@@ -19,7 +19,7 @@ module.exports = function(config) {
       '../app/lib/angular-mocks/angular-mocks.js',
       '../app/directives/*.js',
       '../app/filters/*.js',
-      '../app/features/**/*.js',
+      '../app/modules/**/*.js',
       '../app/services/*.js',
       '../app/routes/*.js',
       '../app/*.js'
