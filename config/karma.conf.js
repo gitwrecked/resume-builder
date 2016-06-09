@@ -22,7 +22,6 @@ module.exports = function(config) {
       '../app/features/**/*.js',
       '../app/services/*.js',
       '../app/routes/*.js',
-      '../app/features/**/*.js',  
       '../app/*.js'
     ],
 

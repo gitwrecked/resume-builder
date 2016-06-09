@@ -16,7 +16,7 @@ gulp.task('css', function() { // task to compile scss to css
     gulp.src('app/css/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer('last 2 versions'))
-        .pipe(gulp.dest('app'));
+        .pipe(gulp.dest('app/css'));
 });
 
 gulp.task('jshint', function() { // task to generate output from code analysis
@@ -79,12 +79,17 @@ gulp.task('inject', function(){ // task to read css and lib directories, add css
 });
 
 gulp.task('watch', function() { // task to run styles task on file change
-    gulp.watch('scss/**/*.scss',['css','reload']);
+    gulp.watch('app/css/*.scss',['css','reload']);
     gulp.watch([
       'app/**/*.html',
-      'app/**/*.js'],
-    ['reload']);
-    gulp.watch('test/**/*.js', ['test']);
+      'app/**/*.js'
+      ], ['reload']);
+    gulp.watch([
+      '../app/directives/*.js',
+      '../app/filters/*.js',
+      '../app/features/**/*.js',
+      '../app/services/*.js',
+      ], ['test']);
 });
 
 module.exports = gulp;
