@@ -9,7 +9,7 @@
     "url": "git://github.com/gitwrecked/resume-builder.git"
   },
   "scripts": {
-    "test": "karma start karma.conf.js",
+    "test": "gulp test",
     "prestart": "npm install",
     "start": "node server.js",
     "postinstall": "bower install"

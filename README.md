@@ -66,6 +66,7 @@
 │   └── karma.conf.js #test runner configuration
 ├── api.routes.js #backend api routes
 ├── bower.json #front end components (bootstrap,angular,font-awesome,etc.)
+├── .travis.yml #travis-ci config for builds
 ├── .bowerrc #configuration for bower, output directory
 ├── gulpfile.js #task manager, dev only
 ├── package.json #backend components, download with `npm install`
@@ -139,7 +140,14 @@
 + [Material Design Lite](https://getmdl.io/components/index.html)
 
 ### Heroku 
-#### Deploy
+#### Web Deploy
+1. go to [Heroku](https://dashboard.heroku.com/)
+2. login in
+3. select app
+4. select deploy
+5. scroll to manual deploy and choose branch
+
+#### Command Line Deploy
 1. `heroku login` 
 2. `git add . `
 3. `git commit -m "message"`
