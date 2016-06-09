@@ -1,19 +1,15 @@
 // user service ===================
 // angular service to handle user registration, 
 // ideally this service should make api calls to user api, and return results to controller
-angular.module('resumebuilder.app', []).factory('registerService', ['$http', function($http) {
+angular.module('user.module', []).factory('UserService', ['$http', function($http) {
 	 return {
-        // call to get all users
-        get : function() {
-            return $http.get('/api/users');
+        // make post call to create new user, need associated route in node/express routes
+        createUser : function() {
+            console.log('createUser: not implemented yet');
         },
-        // these will work when more API routes are defined on the Node side of things
-        create : function(user) {
-            return $http.post('/api/users', user);
-        },
-        // call to DELETE a user
-        delete : function(id) {
-            return $http.delete('/api/users/' + id);
+        // make get call to retrieve user, need associated route in node/express routes
+        getUser : function(user) {
+            console.log('getUser: not implemented yet');
         }
     };       
 }]);

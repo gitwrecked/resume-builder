@@ -8,7 +8,9 @@ angular.module('resumebuilder.app', [
 	'app.routes', 
 	'upload.module',
 	'login.module',
-	'register.module'
+	'register.module',
+	'user.module',
+	'resume.module'
 	]) 
 	.config(function() { // initialize javascript libraries here if needed
         new WOW().init();
