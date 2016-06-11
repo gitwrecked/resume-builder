@@ -1,28 +1,28 @@
 // login controller unit test ===================
 // angular unit test to validate controller logic and methods
 describe('login.controller', function() {
-    var controller, 
-    scope, 
-    $httpBackend,
-    promise,
-    successCallback,
-    errorCallback,
-    expectedUrl = '/api/user/login';
+    // var controller, 
+    // scope, 
+    // $httpBackend,
+    // promise,
+    // successCallback,
+    // errorCallback,
+    // expectedUrl = '/api/user/login';
 
-    beforeEach(module('login.module'));
-    beforeEach(inject(function($controller, $rootScope, _$httpBackend_){
-    	$httpBackend = _$httpBackend_;
-        scope = $rootScope.$new();
-        scope.formLogin = {$valid:true};
-        successCallback = jasmine.createSpy();
-        errorCallback = jasmine.createSpy();
-        controller = $controller('login.controller', { $scope: scope });
-    }));
+    // beforeEach(module('resumebuilder.app'));
+    // beforeEach(inject(function($controller, $rootScope, _$httpBackend_){
+    // 	$httpBackend = _$httpBackend_;
+    //     scope = $rootScope.$new();
+    //     scope.formLogin = {$valid:true};
+    //     successCallback = jasmine.createSpy();
+    //     errorCallback = jasmine.createSpy();
+    //     controller = $controller('login.controller', { $scope: scope });
+    // }));
     
-    afterEach(function() {
-	    $httpBackend.verifyNoOutstandingExpectation();
-	    $httpBackend.verifyNoOutstandingRequest();
-    });
+    // afterEach(function() {
+	   //  $httpBackend.verifyNoOutstandingExpectation();
+	   //  $httpBackend.verifyNoOutstandingRequest();
+    // });
 
     it('test', function() {
     	console.log('login.controller: add a test!');
