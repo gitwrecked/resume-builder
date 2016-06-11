@@ -21,5 +21,4 @@ deploy:
 notifications:
   slack: gitwrecked:OEXOs5wkTZglJKfqGC7edOau
 branches:
-  only:
-  - /^(?i:feature)\/.*$/
+  except: true
