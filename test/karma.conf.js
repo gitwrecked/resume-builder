@@ -20,7 +20,7 @@ module.exports = function(config) {
       '../app/*.js',
       '../app/directives/*.js',
       '../app/filters/*.js',
-      '../app/modules/**/*.js',
+      '../app/components/**/*.js',
       '../app/services/*.js',
       '../app/routes/*.js'
     ],

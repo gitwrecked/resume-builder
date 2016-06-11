@@ -5,18 +5,18 @@ angular.module('resumebuilder.app').config(['$stateProvider', '$urlRouterProvide
     $stateProvider
         .state('home', {
             url: '/home',
-            templateUrl: 'modules/upload/upload.template.html'
+            templateUrl: 'components/upload/upload.template.html'
         })
         .state('login', {
             url: '/login',
-            templateUrl: 'modules/login/login.template.html'
+            templateUrl: 'components/login/login.template.html'
         })
         .state('register', {
             url: '/register',
-            templateUrl: 'modules/register/register.template.html'
+            templateUrl: 'components/register/register.template.html'
         })
         .state('upload', {
             url: '/upload',
-            templateUrl: 'modules/upload/upload.template.html'
+            templateUrl: 'components/upload/upload.template.html'
         });
 }]);

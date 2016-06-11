@@ -23,7 +23,7 @@ gulp.task('jshint', function() { // task to generate output from code analysis
   return gulp.src([
       'app/directives/**/*.js',
       'app/filters/**/*.js',
-      'app/modules/**/*.js',
+      'app/components/**/*.js',
       'app/models/**/*.js',
       'app/routes/**/*.js',
       'app/services/**/*.js',
@@ -60,7 +60,7 @@ gulp.task('inject', function(){ // task to read css and lib directories, add css
            .pipe(inject(
                gulp.src([
                   './app/directives/**/*.js',
-                  './app/modules/**/*.js',
+                  './app/components/**/*.js',
                   './app/filters/**/*.js',
                   './app/services/**/*.js',
                   './app/routes/**/*.js',
@@ -87,7 +87,7 @@ gulp.task('watch', function() { // task to run styles task on file change
     gulp.watch([
       '../app/directives/*.js',
       '../app/filters/*.js',
-      '../app/modules/**/*.js',
+      '../app/components/**/*.js',
       '../app/services/*.js',
       ], ['test']);
 });
