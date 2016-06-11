@@ -24,20 +24,21 @@
 	<script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
 	<script src="routes/app.routes.js"></script>
 	<script src="services/user.service.js"></script>
-	<script src="features/upload/upload.controller.js"></script>
-	<script src="features/register/register.controller.js"></script>
-	<script src="features/login/login.controller.js"></script>
+	<script src="services/resume.service.js"></script>
+	<script src="modules/upload/upload.controller.js"></script>
+	<script src="modules/register/register.controller.js"></script>
+	<script src="modules/login/login.controller.js"></script>
 	<script src="resumebuilder.app.js"></script>
 	<!-- endinject -->
 </head>
 <body ng-app="resumebuilder.app">
 	<!-- include nav template -->
-	<div ng-include="'features/nav/nav.template.html'"></div>
+	<div ng-include="'modules/nav/nav.template.html'"></div>
 	<div class="container app-body">
 		<!-- dynamic content served up with angular -->
 		<div ui-view class="app-content"></div>			
 	</div>
 	<!-- include footer template -->	
-	<div ng-include="'features/footer/footer.template.html'"></div>
+	<div ng-include="'modules/footer/footer.template.html'"></div>
 </body>
 </html>

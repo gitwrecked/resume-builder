@@ -42,13 +42,13 @@
 │       │   └── filter2.js
 │       ├── routes #angular routes
 │       │   └── app.routes.js #angular routes using ui.router
-│       ├── features #feature based hiearchy
-│       │   ├── feature1
-│       │   │   ├── feature1.controller.js
-│       │   │   └── feature1.template.html
-│       │   └── feature2
-│       │       ├── feature2.controller.js
-│       │       └── feature2.template.html
+│       ├── modules #feature based hiearchy
+│       │   ├── module1
+│       │   │   ├── module1.controller.js
+│       │   │   └── module1.template.html
+│       │   └── module2
+│       │       ├── module2.controller.js
+│       │       └── module2.template.html
 │       └── resumebuilder.app.js #angular bootstrap
 ├── jshint
 │   └── output.html #code analysis output

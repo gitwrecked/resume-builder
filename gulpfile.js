@@ -8,22 +8,22 @@ var autoprefixer = require('gulp-autoprefixer');
 var karma        = require('karma').Server;
 var inject       = require('gulp-inject');
 var angularfs    = require('gulp-angular-filesort');
-
-gulp.task('default', ['css','test','jshint']); // run gulp in terminal to automate
-gulp.task('start', ['init','css','test','jshint','watch']); // run gulp in terminal to automate
+var defaultTasks = ['css','test','jshint']
+gulp.task('default', defaultTasks); // run gulp in terminal to automate
+gulp.task('start', defaultTasks); // run gulp in terminal to automate
 
 gulp.task('css', function() { // task to compile scss to css
-    gulp.src('scss/**/*.scss')
+    gulp.src('app/css/*.scss')
         .pipe(sass().on('error', sass.logError))
         .pipe(autoprefixer('last 2 versions'))
-        .pipe(gulp.dest('app/css/'));
+        .pipe(gulp.dest('app/css'));
 });
 
 gulp.task('jshint', function() { // task to generate output from code analysis
   return gulp.src([
       'app/directives/**/*.js',
       'app/filters/**/*.js',
-      'app/features/**/*.js',
+      'app/modules/**/*.js',
       'app/models/**/*.js',
       'app/routes/**/*.js',
       'app/services/**/*.js',
@@ -50,7 +50,7 @@ gulp.task('reload', function() { // task to reload browser
 
 gulp.task('test', function(){ // task to load karma/jasmine and run specs
   new karma({
-    configFile: __dirname + '/config/karma.conf.js',
+    configFile: __dirname + '/test/karma.conf.js',
     singleRun: true
   }).start();
 });
@@ -60,7 +60,7 @@ gulp.task('inject', function(){ // task to read css and lib directories, add css
            .pipe(inject(
                gulp.src([
                   './app/directives/**/*.js',
-                  './app/features/**/*.js',
+                  './app/modules/**/*.js',
                   './app/filters/**/*.js',
                   './app/services/**/*.js',
                   './app/routes/**/*.js',
@@ -79,12 +79,17 @@ gulp.task('inject', function(){ // task to read css and lib directories, add css
 });
 
 gulp.task('watch', function() { // task to run styles task on file change
-    gulp.watch('scss/**/*.scss',['css','reload']);
+    gulp.watch('app/css/*.scss',['css','reload']);
     gulp.watch([
       'app/**/*.html',
-      'app/**/*.js'],
-    ['reload']);
-    gulp.watch('test/**/*.js', ['test']);
+      'app/**/*.js'
+      ], ['reload']);
+    gulp.watch([
+      '../app/directives/*.js',
+      '../app/filters/*.js',
+      '../app/modules/**/*.js',
+      '../app/services/*.js',
+      ], ['test']);
 });
 
 module.exports = gulp;
