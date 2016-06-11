@@ -20,5 +20,3 @@ deploy:
   on: dev
 notifications:
   slack: gitwrecked:OEXOs5wkTZglJKfqGC7edOau
-branches:
-  except: true
