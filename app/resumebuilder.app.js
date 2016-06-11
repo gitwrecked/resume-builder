@@ -4,13 +4,7 @@
 // add names here, and include in index.html imports 
 angular.module('resumebuilder.app', [
 	'ngRoute',
-	'ui.router', 
-	'app.routes', 
-	'upload.module',
-	'login.module',
-	'register.module',
-	'user.module',
-	'resume.module'
+	'ui.router'
 	]) 
 	.config(function() { // initialize javascript libraries here if needed
         new WOW().init();

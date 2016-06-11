@@ -1,7 +1,7 @@
 // resume service ===================
 // angular service to handle resume, 
 // ideally this service should make api calls to user api, and return results to controller
-angular.module('resume.module', []).factory('resumeService', ['$http', function($http) {
+angular.module('resumebuilder.app').factory('resumeService', ['$http', function($http) {
 	 return {
         // make get call to retrieve user resumes, need associated route in node/express routes
         getResumes : function() {

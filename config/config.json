@@ -1,7 +1,6 @@
 {
 	"db": {
-		"mongo": "",
-		"local": "mongodb://localhost/test"
+		"url": "mongodb://localhost/test"
 	},
 	"server": {
 		"listenPort": 3001,

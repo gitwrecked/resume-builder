@@ -6,4 +6,5 @@ app/lib
 .DS_Store
 /*.env
 *.txt
-/test/reports
+test/reports
+config/config.json

@@ -1,7 +1,7 @@
 // login controller ===================
 // angular controller to handle user login, including routes to call backend api
 // front end does not connect to mongo libraries, therefore api routes needed
-angular.module('login.module', []).controller('login.controller', ['$scope', '$http', function($scope, $http) {
+angular.module('resumebuilder.app').controller('login.controller', ['$scope', '$http', function($scope, $http) {
     $scope.login = function(){
         $scope.loggingin = true;
 		if(!$scope.formLogin.$valid){ // call form by name to check if form valid

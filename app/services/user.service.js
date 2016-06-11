@@ -1,7 +1,7 @@
 // user service ===================
 // angular service to handle user registration, 
 // ideally this service should make api calls to user api, and return results to controller
-angular.module('user.module', []).factory('UserService', ['$http', function($http) {
+angular.module('resumebuilder.app').factory('UserService', ['$http', function($http) {
 	 return {
         // make post call to create new user, need associated route in node/express routes
         createUser : function() {

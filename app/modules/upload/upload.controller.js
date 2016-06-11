@@ -1,7 +1,7 @@
 // upload controller ===================
 // angular controller to handle resume upload, including routes to call backend api
 // front end does not connect to mongo libraries, therefore api routes needed
-angular.module('upload.module', []).controller('upload.controller', ['$scope','$http',function($scope,$http) {
+angular.module('resumebuilder.app').controller('upload.controller', ['$scope','$http',function($scope,$http) {
 	$scope.upload = function(){
 		$scope.uploading = true;
 		if(!$scope.formUpload.$valid){ // validation needs to be extracted to either service or directives

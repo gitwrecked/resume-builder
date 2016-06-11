@@ -10,7 +10,7 @@ var path 		   = require('path');
 var project 	   = require('./package');
 var config 		   = require('./config/config');
 
-var mongoURI = process.env.MONGOLAB_URI ? process.env.MONGOLAB_URI : config.db.local; // connect to mongo lab if server config var exists
+var mongoURI = process.env.MONGOLAB_URI ? process.env.MONGOLAB_URI : config.db.url; // connect to mongo lab if server config var exists
 mongoose.connect(mongoURI);
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
