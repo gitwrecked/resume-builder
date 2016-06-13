@@ -1,46 +1,53 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<base href="/">
-	<title>Resume Builder</title>
-	<!-- inject:css -->
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="lib/animate.css/animate.min.css">
-	<link rel="stylesheet" href="lib/material-design-lite/material.min.css">
-	<link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
-	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
-	<link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
-	<!-- endinject -->
-	<!-- inject:js -->
-	<script src="lib/angular/angular.min.js"></script>
-	
-	<script src="lib/jquery/dist/jquery.min.js"></script>
-	<script src="lib/material-design-lite/material.min.js"></script>
-	<script src="lib/angular-route/angular-route.min.js"></script>
-	<script src="lib/jquery/external/sizzle/dist/sizzle.min.js"></script>
-	<script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
-	<script src="lib/wow/dist/wow.min.js"></script>
-	<script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
-	<script src="resumebuilder.app.js"></script>
-	<script src="routes/app.routes.js"></script>
-	<script src="services/user.service.js"></script>
-	<script src="services/resume.service.js"></script>
-	<script src="components/upload/upload.controller.js"></script>
-	<script src="components/register/register.controller.js"></script>
-	<script src="components/login/login.controller.js"></script>
-	
-	<!-- endinject -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <title>Resume Builder</title>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="lib/animate.css/animate.min.css">
+    <link rel="stylesheet" href="lib/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="lib/angular/angular.min.js"></script>
+
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+    <script src="lib/material-design-lite/material.min.js"></script>
+    <script src="lib/angular-route/angular-route.min.js"></script>
+    <script src="lib/jquery/external/sizzle/dist/sizzle.min.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="lib/wow/dist/wow.min.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="resumebuilder.app.js"></script>
+    <script src="routes/app.routes.js"></script>
+    <script src="services/user.service.js"></script>
+    <script src="services/resume.service.js"></script>
+    <script src="components/upload/upload.controller.js"></script>
+    <script src="components/register/register.controller.js"></script>
+    <script src="components/login/login.controller.js"></script>
+    <script src="components/about/about.config.js"></script>
+    <script src="components/about/about.controller.js"></script>
+    <script src="components/about/contact/about.contact.controller.js"></script>
+    <script src="components/about/contact/about.service.js"></script>
+
+    <!-- endinject -->
 </head>
+
 <body ng-app="resumebuilder.app">
-	<!-- include nav template -->
-	<div ng-include="'components/nav/nav.template.html'"></div>
-	<div class="container app-body">
-		<!-- dynamic content served up with angular -->
-		<div ui-view class="app-content"></div>			
-	</div>
-	<!-- include footer template -->	
-	<div ng-include="'components/footer/footer.template.html'"></div>
+    <!-- include nav template -->
+    <div ng-include="'components/nav/nav.template.html'"></div>
+    <div class="container app-body">
+        <!-- dynamic content served up with angular -->
+        <div ui-view class="app-content"></div>
+    </div>
+    <!-- include footer template -->
+    <div ng-include="'components/footer/footer.template.html'"></div>
 </body>
+
 </html>

@@ -1,0 +1,34 @@
+<section class="container" ng-controller="about.contact.controller as contactCtrl">
+    <div id="about-contact" class="row">
+        <div class="col-sm-5">
+            <p>Gitwrecked Inc.</p>
+            <p>Email: <a href="mailto:gitwrecked5@gmail.com">GitWrecked5@gmail.com</a></p>
+            <p>Name: {{contact.name}}</p>
+            <p>Email: {{contact.email}}</p>
+            <p>Message: {{contact.message}}</p>
+            <p>Response Message: {{response.message}}</p>
+            <p>Response Status: {{response.status}}</p>
+        </div>
+        <div class="col-sm-5">
+            <form name="contactForm" ng-submit="contactForm.$valid && contactCtrl.addMessage()" novalidate>
+                <p><strong>Questions or comments? Leave us a message!</strong></p>
+                <p>Name:</p>
+                <fieldset class="form-group">
+                    <input ng-model="contactCtrl.contact.name" class="form-control" type="text" required />
+                </fieldset>
+                <p>Email Address:</p>
+                <fieldset class="form-group">
+                    <input ng-model="contactCtrl.contact.email" class="form-control" type="email" required />
+                </fieldset>
+                <p>Message:</p>
+                <fieldset class="form-group">
+                    <textarea ng-model="contactCtrl.contact.message" class="form-control" required></textarea>
+                </fieldset>
+                <fieldset class="form-group">
+                    <div>Form is Valid? {{contactForm.$valid}}</div>
+                    <input class="btn btn-primary" type="submit" value="Submit" />
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</section>

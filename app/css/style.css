@@ -93,7 +93,8 @@ form {
 .navbar {
   border-radius: 0px !important; }
 
-#template-register, #template-login {
+#template-register,
+#template-login {
   width: 100%;
   max-width: 350px;
   margin: auto; }
@@ -106,3 +107,20 @@ footer {
   background: #222;
   color: grey;
   padding: 20px 10px; }
+
+#template-about {
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px; }
+
+#about-nav {
+  word-wrap: break-word; }
+
+#about-content {
+  padding-top: 10px; }
+
+.ng-invalid.ng-dirty {
+  border-color: #FA787E; }
+
+.ng-valid.ng-dirty {
+  border-color: #78FA89; }

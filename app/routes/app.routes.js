@@ -1,6 +1,6 @@
 // app routes ===================
 // angular routes using ui.router, allows for nested views
-angular.module('resumebuilder.app').config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+angular.module('resumebuilder.app').config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
     $stateProvider
         .state('home', {
@@ -18,5 +18,11 @@ angular.module('resumebuilder.app').config(['$stateProvider', '$urlRouterProvide
         .state('upload', {
             url: '/upload',
             templateUrl: 'components/upload/upload.template.html'
-        });
+        })
+        .state('about', {
+            url: '/about',
+            templateUrl: 'components/about/about.template.html',
+            controller: 'about.controller',
+            controllerAs: 'aboutCtrl'
+        })
 }]);
