@@ -1,0 +1,13 @@
+<div id="about-nav" ng-controller="about.panel.controller as panelCtrl">
+    <ul class="nav nav-tabs">
+        <li ng-class="{active: panelCtrl.isSelected(1)}">
+            <a ng-click="panelCtrl.selectTab(1)" ui-sref="about.site">About the Site</a>
+        </li>
+        <li ng-class="{active: panelCtrl.isSelected(2)}">
+            <a ng-click="panelCtrl.selectTab(2)" ui-sref="about.team ">Our Team</a>
+        </li>
+        <li ng-class="{active: panelCtrl.isSelected(3)}">
+            <a ng-click="panelCtrl.selectTab(3)" ui-sref="about.contact ">Contact Us</a>
+        </li>
+    </ul>
+</div>
