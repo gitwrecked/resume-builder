@@ -5,6 +5,6 @@ env:
   dev: NODE_ENV=TEST
 install: npm install
 before_script: npm install -g gulp
-script: gulp test
+script: gulp ci
 notifications:
   slack: gitwrecked:OEXOs5wkTZglJKfqGC7edOau

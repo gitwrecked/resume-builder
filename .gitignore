@@ -1,10 +1,8 @@
 *sublime*
 npm-debug.log
 node_modules
-jshint
-app/lib
+client/lib
 .DS_Store
 /*.env
 *.txt
-test/reports
-config/config.json
+client/test/reports/*

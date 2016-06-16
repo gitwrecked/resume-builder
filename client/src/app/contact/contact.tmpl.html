@@ -1,0 +1,43 @@
+<div id="template-contact" class="mdl-card mdl-shadow--6dp template" ng-controller="contact.ctrl">
+    <form name="formContact" ng-submit="send()" class="text-center" novalidate>
+        <p><strong>Questions or comments? Leave us a message!</strong></p>
+        <fieldset ng-disabled="submitting">
+            <div class="wow fadeInUp mdl-textfield">
+                <input id="inputName" type="text" placeholder="name" ng-model="contact.name" class="mdl-textfield__input" data-wow-delay="0s" required></input>
+                <div class="mdl-tooltip  mdl-tooltip--left" for="inputName">
+                    enter your name here
+                </div>
+            </div>
+            <div class="wow fadeInUp mdl-textfield">
+                <input id="inputEmail" type="email" placeholder="email" ng-model="contact.email" class="mdl-textfield__input" data-wow-delay=".1s" required></input>
+                <div class="mdl-tooltip  mdl-tooltip--left" for="inputEmail">
+                    enter your email here
+                </div>
+            </div>
+            <div class="wow fadeInUp mdl-textfield">
+                <textarea id="textMessage" type="text" placeholder="message" ng-model="contact.message" class="mdl-textfield__input" data-wow-delay=".2s" required></textarea>
+                <div class="mdl-tooltip  mdl-tooltip--left" for="textMessage">
+                    enter your message here
+                </div>
+            </div>
+            <div class="wow fadeInUp text-center" data-wow-delay=".3s">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+                <i class="fa fa-fw fa-sign-in"></i>&nbsp;Login
+                </button>
+                <div class="binding-view">Form is Valid? {{formContact.$valid}}</div>
+            </div>
+        </fieldset>
+    </form>
+    <div class="text-center binding-view">
+        {{ contact }}
+    </div>
+    <div class="binding-view wow fadeIn">
+        <p>Gitwrecked Inc.</p>
+        <p>Email: <a href="mailto:gitwrecked5@gmail.com">GitWrecked5@gmail.com</a></p>
+        <p>Name: {{contact.name}}</p>
+        <p>Email: {{contact.email}}</p>
+        <p>Message: {{contact.message}}</p>
+        <p>Response Message: {{response.msg}}</p>
+        <p>Response Status: {{response.success}}</p>
+    </div>
+</div>

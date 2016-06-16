@@ -1,0 +1,170 @@
+/* use @import to pull in other partial style sheets */
+
+
+/* palette: define color palette variables here */
+
+
+/* base: use for basic styling used throughout app */
+
+.test {
+    color: #B6B6B6;
+}
+
+
+/* main: use for any specific stylings */
+
+.highlight {
+    background-color: yellow;
+}
+
+#fixed-menu {
+    position: fixed;
+    width: 100%;
+    height: 75px;
+    background-color: #f00;
+    padding: 10px;
+}
+
+#bootstrapForm {
+    width: 700px;
+    margin: 0 auto;
+}
+
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+}
+
+
+/* Wrapper for page content to push down footer */
+
+#wrap {
+    min-height: 100%;
+    height: 100%;
+    /* Negative indent footer by its height */
+    margin: 0 auto -82px 0;
+    /* Pad bottom by footer height */
+    padding: 0 0 80px 0;
+}
+
+
+/* Set the fixed height of the footer here */
+
+#footer {
+    height: 10px;
+    background-color: #f5f5f5;
+}
+
+#wrap .center-container {
+    padding: 50px 0 0 0;
+    margin: 0;
+}
+
+#footer .container {
+    padding-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.center-container {
+    height: 100%;
+    display: table;
+    width: 100%;
+    margin: 0;
+}
+
+.center-row {
+    height: 50%;
+    width: 100%;
+    display: table-row;
+}
+
+.center-row> div {
+    height: 100%;
+    width: 50%;
+    display: table-cell;
+    border: 1px solid #eee;
+}
+
+.mdl-button--accent {
+    background: grey !important;
+}
+
+footer a {
+    color: #9d9d9d;
+}
+
+.template {
+    transition: .3s;
+}
+
+a {
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
+
+input:focus {
+    outline: none;
+}
+
+.binding-view {
+    padding: 10px;
+    overflow-wrap: break-word;
+}
+
+form {
+    padding: 10px;
+}
+
+.app-body {
+    min-height: 100%;
+}
+
+.navbar {
+    border-radius: 0px !important;
+}
+
+#template-register,
+#template-login,
+#template-contact {
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+}
+
+#form-upload {
+    padding: 10px;
+}
+
+footer {
+    margin-top: 10px;
+    background: #222;
+    color: grey;
+    padding: 20px 10px;
+}
+
+#template-about {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#about-nav {
+    word-wrap: break-word;
+}
+
+#about-content {
+    padding: 10px;
+}
+
+.ng-invalid.ng-dirty {
+    border-color: #FA787E;
+}
+
+.ng-valid.ng-dirty {
+    border-color: #78FA89;
+}

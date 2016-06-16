@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/">
+    <title>Resume Builder</title>
+    <!-- inject:css -->
+    <link rel="stylesheet" href="/src/scss/style.css">
+    <link rel="stylesheet" href="/lib/animate.css/animate.min.css">
+    <link rel="stylesheet" href="/lib/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
+    <!-- endinject -->
+    <!-- inject:js -->
+    <script src="/lib/jquery/dist/jquery.min.js"></script>
+    <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/lib/wow/dist/wow.min.js"></script>
+    <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/lib/material-design-lite/material.min.js"></script>
+    <script src="/lib/angular-route/angular-route.min.js"></script>
+    <script src="/lib/angular-cookies/angular-cookies.min.js"></script>
+    <script src="/lib/ngstorage/ngStorage.js"></script>
+    <script src="/lib/jquery/external/sizzle/dist/sizzle.min.js"></script>
+    <script src="/src/app/resumebuilder.app.js"></script>
+    <script src="/src/services/auth.svc.js"></script>
+    <script src="/src/services/resume.svc.js"></script>
+    <script src="/src/services/message.svc.js"></script>
+    <script src="/src/app/upload/upload.ctrl.js"></script>
+    <script src="/src/app/upload/upload.routes.js"></script>
+    <script src="/src/app/register/register.ctrl.js"></script>
+    <script src="/src/app/register/register.routes.js"></script>
+    <script src="/src/app/login/login.ctrl.js"></script>
+    <script src="/src/app/login/login.routes.js"></script>
+    <script src="/src/app/contact/contact.ctrl.js"></script>
+    <script src="/src/app/contact/contact.routes.js"></script>
+    <script src="/src/app/about/about.ctrl.js"></script>
+    <script src="/src/app/about/about.routes.js"></script>
+    <script src="/src/app/nav/nav.ctrl.js"></script>
+    <script src="/src/routes/app.routes.js"></script>
+    <!-- endinject -->
+</head>
+
+<body ng-app="resumebuilder.app">
+    <!-- include nav tmpl -->
+    <div ng-include="'src/app/nav/nav.tmpl.html'"></div>
+    <div class="container app-body">
+        <!-- dynamic content served up with angular -->
+        <div ui-view class="app-content"></div>
+    </div>
+    <!-- include footer tmpl -->
+    <div ng-include="'src/partials/footer.tmpl.html'"></div>
+</body>
+
+</html>
