@@ -1,0 +1,11 @@
+{
+    "db": {
+        "url": "mongodb://localhost/test"
+    },
+    "server": {
+        "listenPort": 3001,
+        "securePort": 0,
+        "secret": "gitwrecked"
+    }
+
+}
