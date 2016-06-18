@@ -16,8 +16,9 @@ angular.module('resumebuilder.app').factory('resumeSvc', [
             },
             // make get call to retrieve one user resume, need associated route in node/express routes
             // TODO can user upload more then one resume??? How to determine which resume to retrieve?
-            getResume: function(user) {
-                var promise = $http.get('/api/resumes/' + user).then(
+            // TODO should probably change query to search by email instead of id
+            getResume: function(id) {
+                var promise = $http.get('/api/resumes/' + id).then(
                     function(res) {
                         return res;
                     });
@@ -45,8 +46,12 @@ angular.module('resumebuilder.app').factory('resumeSvc', [
                 return jsonData;
             },
             // make post call to delete resume, need associated route in node/express routes
-            deleteResume: function(resume) {
-                console.log('deleteResume: not implemented yet');
+            deleteResume: function(id) {
+                var promise = $http.delete('/api/resumes/' + id).then(
+                    function(res) {
+                        return res;
+                    });
+                return promise;
             },
             cycleMap: function(resumeSnippet, wordInString) {
                 globalMap.forEach(function(value, key) {

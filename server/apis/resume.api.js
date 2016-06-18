@@ -33,7 +33,7 @@ api.get('/resumes', function(req, res) {
             return res.json({
                 success: false,
                 msg: 'failed to retrieve all resumes'
-            })
+            });
         }
         return res.json({
             success: true,
@@ -43,6 +43,7 @@ api.get('/resumes', function(req, res) {
 });
 
 //retrieve resume based on ID
+//TODO change to email instead, currently won't have much use
 api.get('/resumes/:resume_id', function(req, res) {
     Resume.findById(req.params.resume_id, function(err, resume) {
         if (err) {

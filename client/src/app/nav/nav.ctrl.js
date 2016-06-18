@@ -14,11 +14,11 @@ angular.module('resumebuilder.app').controller('nav.ctrl', [
         };
 
         //TODO check user role instead of just user is logged in
-        $scope.isAdmin = function () {
+        $scope.isAdmin = function() {
             return $scope.currentUser;
         };
 
-        $scope.isAuthenticated = function () {
+        $scope.isAuthenticated = function() {
             return $scope.currentUser;
         };
     }

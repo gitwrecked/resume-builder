@@ -10,4 +10,3 @@ angular.module('resumebuilder.app', [
     .config(function() { // initialize javascript libraries here if needed
         new WOW().init();
     });
-    

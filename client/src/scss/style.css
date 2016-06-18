@@ -4,6 +4,12 @@
 /* palette: define color palette variables here */
 
 
+/* use @import to pull in other partial style sheets */
+
+
+/* palette: define color palette variables here */
+
+
 /* base: use for basic styling used throughout app */
 
 .test {
@@ -159,6 +165,10 @@ footer {
 
 #about-content {
     padding: 10px;
+}
+
+#template-admin {
+    word-wrap: break-word;
 }
 
 .ng-invalid.ng-dirty {

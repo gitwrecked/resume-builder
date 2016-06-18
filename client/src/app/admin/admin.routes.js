@@ -7,4 +7,4 @@ angular.module('resumebuilder.app').config([
                 templateUrl: 'src/app/admin/admin.tmpl.html'
             });
     }
-])
+]);

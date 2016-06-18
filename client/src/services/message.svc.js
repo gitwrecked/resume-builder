@@ -14,7 +14,21 @@ angular.module('resumebuilder.app').factory('messageSvc', [
                     return res;
                 });
                 return promise;
-            }
+            },
+            //TODO should probably change query to search by email instead of id
+            getMessage: function(id) {
+                var promise = $http.get('api/messages/' + id).then(function(res) {
+                    return res;
+                });
+                return promise;
+            },
+            deleteMessage: function(id) {
+                var promise = $http.delete('/api/messages/' + id).then(
+                    function(res) {
+                        return res;
+                    });
+                return promise;
+            },
         };
     }
 ]);

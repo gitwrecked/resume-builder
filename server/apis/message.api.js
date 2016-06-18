@@ -36,7 +36,7 @@ api.get('/messages', function(req, res) {
             return res.json({
                 success: false,
                 msg: 'failed to retrieve all messages'
-            })
+            });
         }
         return res.json({
             success: true,
@@ -46,6 +46,7 @@ api.get('/messages', function(req, res) {
 });
 
 //retrieve message based on ID
+//TODO get by email instead of id? Currently won't have much use
 api.get('/messages/:message_id', function(req, res) {
     Message.findById(req.params.message_id, function(err, message) {
         if (err) {
