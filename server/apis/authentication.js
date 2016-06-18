@@ -8,7 +8,6 @@ var config = require('server/config');
 var authenticate = express.Router();
 
 authenticate.use(function(req, res, next) {
-    console.log('token authentication: ' + req.body.token);
     var token = req.body.token;
     if (token) {
         jwt.verify(token, config.server.secret, function(err, decoded) {

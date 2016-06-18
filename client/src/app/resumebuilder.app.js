@@ -5,9 +5,9 @@
 angular.module('resumebuilder.app', [
         'ngRoute',
         'ui.router',
-        'ngCookies',
-        'ngStorage'
+        'ngCookies'
     ])
     .config(function() { // initialize javascript libraries here if needed
         new WOW().init();
     });
+    

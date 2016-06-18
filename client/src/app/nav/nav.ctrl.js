@@ -5,6 +5,9 @@ angular.module('resumebuilder.app').controller('nav.ctrl', [
     '$scope', 'authSvc',
     function($scope, authSvc) {
         $scope.currentUser = authSvc.user();
+        $scope.$watch(authSvc.user, function() {
+            $scope.currentUser = authSvc.user();
+        }, true);
         $scope.logout = function() {
             $scope.currentUser = "";
             authSvc.logout();

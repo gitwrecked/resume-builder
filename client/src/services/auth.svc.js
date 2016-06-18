@@ -29,18 +29,18 @@ angular.module('resumebuilder.app').factory('authSvc', [
                             token: res.data.token
                         };
                         currentUser = user;
-                        $cookies.put('currentUser', user);
+                        $cookies.put('currentUser', JSON.stringify(user));
                         return res;
                     });
                 return promise;
             },
             user: function() {
-                var user = $cookies.get('currentUser');
-                if(!user){
+                try {
+                    currentUser = JSON.parse($cookies.get('currentUser'));
                     return currentUser;
+                } catch (err) {
+                    return false;
                 }
-                return JSON.parse(user);
-                
             },
             logout: function() {
                 currentUser = {};
