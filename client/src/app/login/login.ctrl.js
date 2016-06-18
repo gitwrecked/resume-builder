@@ -6,10 +6,6 @@ angular.module('resumebuilder.app').controller('login.ctrl', [
     function($scope, $state, authSvc) {
         $scope.login = function() {
             $scope.loggingin = true;
-            if (!$scope.formLogin.$valid) { // call form by name to check if form valid
-                $scope.loggingin = false;
-                return;
-            }
             authSvc.login($scope.user).then(function(res) { // make service call to node api routes as front doesn't have support for mongoose/mongo
                 $scope.message = res.data.msg;
                 if (!res.data.success) {

@@ -6,12 +6,6 @@ angular.module('resumebuilder.app').controller('register.ctrl', [
     function($scope, $state, authSvc) {
         $scope.register = function() {
             $scope.registering = true;
-            if ($scope.user.password !== $scope.user.passwordConfirm) { // remove validation here
-                $scope.message = "Passwords don't match...";
-                $scope.registering = false;
-                return;
-            }
-
             authSvc.register($scope.user).then(function(res) { // make service call to node api routes as front doesn't have support for mongoose/mongo
                 $scope.message = res.data.msg;
                 if (!res.data.success) {

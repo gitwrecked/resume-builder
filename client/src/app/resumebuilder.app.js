@@ -5,9 +5,14 @@
 angular.module('resumebuilder.app', [
         'ngRoute',
         'ui.router',
-        'ngCookies'
+        'ngCookies',
+        'ngMaterial',
+        'ngMessages',
+        'ngSanitize'
     ])
-    .config(function() { // initialize javascript libraries here if needed
+    .config(function($mdThemingProvider) { // initialize javascript libraries here if needed
         new WOW().init();
+        $mdThemingProvider.theme('rb-default')
+            .primaryPalette('grey')
+            .accentPalette('light-blue');
     });
-    
