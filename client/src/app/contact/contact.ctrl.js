@@ -4,7 +4,6 @@
 angular.module('resumebuilder.app').controller('contact.ctrl', [
     '$scope', 'messageSvc',
     function($scope, messageSvc) {
-
         $scope.send = function() {
             $scope.submitting = true;
             $scope.contact.date = Date.now();
@@ -13,7 +12,6 @@ angular.module('resumebuilder.app').controller('contact.ctrl', [
                 $scope.response = resData;
             });
             $scope.contact = null;
-            $scope.formContact.$setPristine();
             $scope.submitting = false;
         };
     }

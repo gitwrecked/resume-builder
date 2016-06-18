@@ -1,29 +1,39 @@
-<div id="template-contact" class="mdl-card mdl-shadow--6dp template" ng-controller="contact.ctrl">
+<md-content id="template-contact" ng-controller="contact.ctrl">
     <form name="formContact" ng-submit="send()" class="text-center" novalidate>
         <p><strong>Questions or comments? Leave us a message!</strong></p>
         <fieldset ng-disabled="submitting">
-            <div class="wow fadeInUp mdl-textfield">
-                <input id="inputName" type="text" placeholder="name" ng-model="contact.name" class="mdl-textfield__input" data-wow-delay="0s" required></input>
-                <div class="mdl-tooltip  mdl-tooltip--left" for="inputName">
-                    enter your name here
-                </div>
+            <div layout="column" layout-align="space-around stretch">
+                <md-input-container class="md-block wow fadeInUp" data-wow-delay="0s">
+                    <label>Name</label>
+                    <input name="name" ng-model="contact.name" ng-trim="false" ng-pattern="/^[a-zA-Z0-9]*$/" required>
+                    <md-icon md-font-icon="fa fa-user"></md-icon>
+                    <div ng-messages="formContact.name.$error">
+                        <p ng-message="required">Name is required!</p>
+                        <p ng-message="pattern">Name can only contain alpha-numeric characters!</p>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block wow fadeInUp" data-wow-delay=".1s">
+                    <label>Email</label>
+                    <input name="email" type="email" ng-model="contact.email" ng-trim="false" required>
+                    <md-icon md-font-icon="fa fa-envelope-o"></md-icon>
+                    <div ng-messages="formContact.email.$error">
+                        <p ng-message="required">Email is required!</p>
+                        <p ng-message="email">Not a valid email!</p>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block wow fadeInUp" data-wow-delay=".2s">
+                    <label>Message</label>
+                    <textarea ng-model="contact.message" rows="5" md-maxlength="150" md-select-on-focus required></textarea>
+                    <md-icon md-font-icon="fa fa-comment-o"></md-icon>
+                    <div ng-messages="formContact.message.$error">
+                        <p ng-message="required">Please enter a message!</p>
+                    </div>
+                </md-input-container>
             </div>
-            <div class="wow fadeInUp mdl-textfield">
-                <input id="inputEmail" type="email" placeholder="email" ng-model="contact.email" class="mdl-textfield__input" data-wow-delay=".1s" required></input>
-                <div class="mdl-tooltip  mdl-tooltip--left" for="inputEmail">
-                    enter your email here
-                </div>
-            </div>
-            <div class="wow fadeInUp mdl-textfield">
-                <textarea id="textMessage" type="text" placeholder="message" ng-model="contact.message" class="mdl-textfield__input" data-wow-delay=".2s" required></textarea>
-                <div class="mdl-tooltip  mdl-tooltip--left" for="textMessage">
-                    enter your message here
-                </div>
-            </div>
-            <div class="wow fadeInUp text-center" data-wow-delay=".3s">
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">
+            <md-button class="md-block md-raised wow fadeInUp" type="submit" data-wow-delay=".3s" ng-disabled="!formContact.$valid">
                 <i class="fa fa-fw fa-sign-in"></i>&nbsp;Submit
-                </button>
+            </md-button>
+            <div class="wow fadeInUp text-center" data-wow-delay=".4s">
                 <div class="binding-view">Form is Valid? {{formContact.$valid}}</div>
             </div>
         </fieldset>
@@ -40,4 +50,5 @@
         <p>Response Message: {{response.msg}}</p>
         <p>Response Status: {{response.success}}</p>
     </div>
-</div>
+    </div>
+</md-content>

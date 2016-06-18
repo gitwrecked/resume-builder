@@ -6,9 +6,16 @@
 
 /* base: use for basic styling used throughout app */
 
-.test {
-    color: #B6B6B6;
+md-toolbar {
+    min-height: 50px !important;
 }
+
+.navbar {
+    min-height: 50px !important;
+    margin-bottom: 0 !important;
+}
+
+#main-nav {}
 
 
 /* main: use for any specific stylings */
@@ -126,6 +133,10 @@ form {
 
 .navbar {
     border-radius: 0px !important;
+}
+
+.navbar-brand {
+    font-size: 20px;
 }
 
 #template-register,
