@@ -10,7 +10,7 @@ angular.module('resumebuilder.app').controller('contact.ctrl', [
             $scope.contact.date = Date.now();
             $scope.contact = $scope.contact;
             messageSvc.sendMessage($scope.contact).then(function(resData) {
-                $scope.response = resData;
+                $scope.response = resData.data;
             });
             $scope.contact = null;
             $scope.formContact.$setPristine();

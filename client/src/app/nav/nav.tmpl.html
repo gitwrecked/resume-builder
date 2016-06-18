@@ -8,7 +8,11 @@
             <div>
                 <ul class="nav navbar-nav">
                     <!--  add links here -->
-                    <li><a ui-sref="about.site"><i class="fa fa-fw"></i>About</a></li>
+                    <li><a ui-sref="about.site"><i class="fa"></i>About</a></li>
+                </ul>
+                <ul class="nav navbar-nav" ng-show="isAuthenticated()">
+                    <!-- links for authenticated users -->
+                    <li ng-show="isAdmin()"><a ui-sref="admin"><i class="fa"></i>Admin</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <!--  add links here -->
@@ -17,7 +21,6 @@
 
                     <li ng-show="currentUser.email" ng-click="logout()"><a ui-sref="login"><i class="fa fa-fw fa-sign-out"></i>&nbsp;Logout {{currentUser.email}}</a></li>
                 </ul>
-
             </div>
         </div>
     </nav>

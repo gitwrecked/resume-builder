@@ -12,5 +12,14 @@ angular.module('resumebuilder.app').controller('nav.ctrl', [
             $scope.currentUser = "";
             authSvc.logout();
         };
+
+        //TODO check user role instead of just user is logged in
+        $scope.isAdmin = function () {
+            return $scope.currentUser;
+        };
+
+        $scope.isAuthenticated = function () {
+            return $scope.currentUser;
+        };
     }
 ]);

@@ -8,11 +8,20 @@ angular.module('resumebuilder.app').factory('resumeSvc', [
         return {
             // make get call to retrieve user resumes, need associated route in node/express routes
             getResumes: function() {
-                console.log('getResumes: not implemented yet');
+                var promise = $http.get('/api/resumes').then(
+                    function(res) {
+                        return res;
+                    });
+                return promise;
             },
             // make get call to retrieve one user resume, need associated route in node/express routes
+            // TODO can user upload more then one resume??? How to determine which resume to retrieve?
             getResume: function(user) {
-                console.log('getResume: not implemented yet');
+                var promise = $http.get('/api/resumes/' + user).then(
+                    function(res) {
+                        return res;
+                    });
+                return promise;
             },
             // make post call to upload resume, need associated route in node/express routes
             uploadResume: function(resume) {

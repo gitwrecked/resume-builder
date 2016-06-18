@@ -4,8 +4,14 @@ angular.module('resumebuilder.app').factory('messageSvc', [
     function($http) {
         return {
             sendMessage: function(message) {
-                var promise = $http.post('api/message/save', message).then(function(res) {
-                    return res.data;
+                var promise = $http.post('api/messages', message).then(function(res) {
+                    return res;
+                });
+                return promise;
+            },
+            getMessages: function() {
+                var promise = $http.get('api/messages').then(function(res) {
+                    return res;
                 });
                 return promise;
             }

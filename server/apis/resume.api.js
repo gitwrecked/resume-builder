@@ -25,4 +25,57 @@ api.post('/resume/upload', function(req, res) {
     });
 });
 
+//retrieve all resumes
+api.get('/resumes', function(req, res) {
+    Resume.find(function(err, resumes) {
+        if (err) {
+            console.error(err);
+            return res.json({
+                success: false,
+                msg: 'failed to retrieve all resumes'
+            })
+        }
+        return res.json({
+            success: true,
+            data: resumes
+        });
+    });
+});
+
+//retrieve resume based on ID
+api.get('/resumes/:resume_id', function(req, res) {
+    Resume.findById(req.params.resume_id, function(err, resume) {
+        if (err) {
+            console.error(err);
+            return res.json({
+                success: false,
+                msg: 'failed to retrieve resume'
+            });
+        }
+        return res.json({
+            success: true,
+            data: resume
+        });
+    });
+});
+
+api.delete('/resumes/:resume_id', function(req, res) {
+    Resume.remove({
+        _id: req.params.resume_id
+    }, function(err, resume) {
+        if (err) {
+            console.error(err);
+            return res.json({
+                success: false,
+                msg: 'unable to delete resume'
+            });
+        } else {
+            return res.json({
+                success: true,
+                msg: 'successfully deleted resume'
+            });
+        }
+    });
+});
+
 module.exports = api;
