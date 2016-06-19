@@ -20,10 +20,11 @@ gulp.task('start', defaultTasks); // run gulp in terminal to automate
 gulp.task('test', ['unit', 'e2e']);
 
 gulp.task('css', function() { // task to compile scss to css
-    gulp.src('client/src/scss/*.scss')
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer('last 2 versions'))
-        .pipe(gulp.dest('client/src/scss'));
+    // until we decide on how to handle css, avoid accidently overwriting changes in css file
+    // gulp.src('client/src/scss/*.scss')
+    //     .pipe(sass().on('error', sass.logError))
+    //     .pipe(autoprefixer('last 2 versions'))
+    //     .pipe(gulp.dest('client/src/scss'));
 });
 
 gulp.task('jshint', function() { // task to generate output from code analysis

@@ -9,14 +9,14 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="/src/scss/style.css">
     <link rel="stylesheet" href="/lib/animate.css/animate.min.css">
-    <link rel="stylesheet" href="/lib/material-design-lite/material.min.css">
+    <link rel="stylesheet" href="/lib/angular-material/angular-material.min.css">
     <link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css">
     <!-- endinject -->
 </head>
 
-<body ng-app="resumebuilder.app">
+<body ng-app="resumebuilder.app" md-theme="rb-default" ng-cloak>
     <!-- include nav tmpl -->
     <div ng-include="'src/app/nav/nav.tmpl.html'"></div>
     <div class="container app-body">
@@ -31,8 +31,12 @@
     <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/lib/wow/dist/wow.min.js"></script>
     <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular-animate/angular-animate.min.js"></script>
     <script src="/lib/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="/lib/material-design-lite/material.min.js"></script>
+    <script src="/lib/angular-aria/angular-aria.min.js"></script>
+    <script src="/lib/angular-messages/angular-messages.min.js"></script>
+    <script src="/lib/angular-material/angular-material.min.js"></script>
+    <script src="/lib/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="/lib/angular-route/angular-route.min.js"></script>
     <script src="/lib/angular-cookies/angular-cookies.min.js"></script>
     <script src="/lib/jquery/external/sizzle/dist/sizzle.min.js"></script>

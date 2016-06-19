@@ -1,34 +1,47 @@
 <!-- template for register form, associated controller in same folder -->
-<div id="template-register" class="mdl-shadow--6dp template" ng-controller="register.ctrl">
+<md-content layout-padding id="template-login" ng-controller="register.ctrl">
     <form id="form-register" name="formRegister" ng-submit="register()" class="text-center" novalidate>
+        {{ loginform.$valid }}
         <fieldset ng-disabled="registering">
-            <div class="wow fadeInUp mdl-textfield mdl-js-textfield">
-                <input id="inputEmail" type="text" placeholder="email" ng-model="user.email" class="mdl-textfield__input" data-wow-delay="0s" required></input>
-                <div class="mdl-tooltip  mdl-tooltip--left" for="inputEmail">
-                    enter your email here
-                </div>
+            <div layout="column" layout-align="space-around stretch">
+                <md-input-container class="md-block wow fadeInUp" data-wow-delay="0s">
+                    <label>Email</label>
+                    <input name="email" type="email" ng-model="user.email" required>
+                    <md-icon md-font-icon="fa fa-envelope-o"></md-icon>
+                    <div ng-messages="formRegister.email.$error">
+                        <p ng-message="required">Email is required!</p>
+                        <p ng-message="email">Not a valid email!</p>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block wow fadeInUp" data-wow-delay=".1s">
+                    <label>Password</label>
+                    <input name="password" ng-model="user.password" type="password" ng-minlength="3" ng-trim="false" ng-pattern="/^[a-zA-Z0-9]*$/" required>
+                    <md-icon md-font-icon="fa fa-unlock-alt"></md-icon>
+                    <div ng-messages="formRegister.password.$error">
+                        <p ng-message="required">Password is required!</p>
+                        <p ng-message="pattern">Password can only contain alpha-numeric characters!</p>
+                        <p ng-message="minlength">Password is too short!</p>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block wow fadeInUp" data-wow-delay=".2s">
+                    <label>Confirm Password</label>
+                    <input name="confirmPassword" ng-model="user.confirmPassword" type="password" ng-minlength="3" ng-pattern="{{user.password}}" required>
+                    <md-icon md-font-icon="fa fa-unlock-alt"></md-icon>
+                    <div ng-messages="formRegister.confirmPassword.$error" ng-show="formRegister.confirmPassword.$touched">
+                        <p ng-message="minlength">Password confirm your password!</p>
+                        <p ng-message="pattern">Passwords do not match!</p>
+                        <p ng-message="required">Password confirm your password!</p>
+                    </div>
+                </md-input-container>
             </div>
-            <div class="wow fadeInUp mdl-textfield">
-                <input id="inputPassword" type="password" placeholder="password" ng-model="user.password" class="mdl-textfield__input" data-wow-delay=".1s" required></input>
-                <div class="mdl-tooltip  mdl-tooltip--left" for="inputPassword">
-                    enter your password here
-                </div>
-            </div>
-            <div class="wow fadeInUp mdl-textfield">
-                <input id="inputPasswordConfirm" type="password" placeholder="retype password" ng-model="user.passwordConfirm" class="mdl-textfield__input" data-wow-delay=".1s" required></input>
-                <div class="mdl-tooltip  mdl-tooltip--left" for="inputPasswordConfirm">
-                    retype your password here
-                </div>
-            </div>
-            <div class="wow fadeInUp text-center" data-wow-delay=".2s">
-                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="submit">	
-					<i class="fa fa-fw fa-user-plus"></i>&nbsp;Register
-				</button>
-            </div>
+            <md-button class="md-block md-raised wow fadeInUp" type="submit" data-wow-delay=".3s" ng-disabled="!formRegister.$valid">
+                <i class="fa fa-fw fa-sign-in"></i>&nbsp;Register
+            </md-button>
+
         </fieldset>
         <div class="text-center">{{message}}</div>
     </form>
-    <div class="text-center binding-view">
+    <div class="text-center binding-view wow fadeInUp" data-wow-delay=".4s">
         {{ user }}
     </div>
-</div>
+</md-content>
