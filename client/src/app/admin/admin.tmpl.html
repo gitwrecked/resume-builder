@@ -1,25 +1,25 @@
 <div id="template-admin" ng-controller="admin.ctrl" class="text-center, container">
     <div class="row">
         <div class="col-sm-6">
-            <h1>All Uploaded Resumes</h1>
-            <div ng-repeat="resume in resumes">
+            <h1 class="wow fadeIn">All Uploaded Resumes</h1>
+            <div ng-repeat="resume in resumes" class="wow fadeInUp" data-wow-delay=".3s">
                 <p> Email: {{resume.email}} </p>
                 <p> Resume: {{resume.resume}} </p>
-                <button ng-click="deleteResume(resume)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                <i class="fa"></i>&nbsp;Delete
-                </button>
-                <br><br><br>
+                <p> Summary: {{resume.resume.summary}} </p>
+                <p> Qualifications: {{resume.resume.qualifications}} </p>
+                <p> Experience: {{resume.resume.experience}} </p>
+                <p> Education: {{resume.resume.education}} </p>
+                <md-button class="md-block md-raised" ng-click="deleteResume(resume)"><i class="fa"></i>Delete</md-button>
+                <br><br><br>                
             </div>
         </div>
         <div class="col-sm-6">
-            <h1>All Uploaded Messages</h1>
-            <div ng-repeat="message in messages">
+            <h1 class="wow fadeIn">All Uploaded Messages</h1>
+            <div ng-repeat="message in messages" class="wow fadeInUp" data-wow-delay=".3s">
                 <p> Name: {{message.name}} </p>
                 <p> Email: {{message.email}} </p>
                 <p> Message: {{message.message}} </p>
-                <button ng-click="deleteMsg(message)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                <i class="fa"></i>&nbsp;Delete
-                </button>
+                <md-button class="md-block md-raised" ng-click="deleteMsg(message)"><i class="fa"></i>Delete</md-button>
                 <br><br><br>
             </div>
         </div>

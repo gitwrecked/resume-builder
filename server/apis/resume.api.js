@@ -37,7 +37,7 @@ api.get('/resumes', function(req, res) {
         }
         return res.json({
             success: true,
-            data: resumes
+            resumes: resumes
         });
     });
 });
@@ -55,7 +55,7 @@ api.get('/resumes/:resume_id', function(req, res) {
         }
         return res.json({
             success: true,
-            data: resume
+            resume: resume
         });
     });
 });

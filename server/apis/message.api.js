@@ -40,7 +40,7 @@ api.get('/messages', function(req, res) {
         }
         return res.json({
             success: true,
-            data: messages
+            messages: messages
         });
     });
 });
@@ -58,7 +58,7 @@ api.get('/messages/:message_id', function(req, res) {
         }
         return res.json({
             success: true,
-            data: message
+            message: message
         });
     });
 });

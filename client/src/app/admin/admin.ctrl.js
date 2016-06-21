@@ -22,13 +22,18 @@ angular.module('resumebuilder.app').controller('admin.ctrl', [
 
         function getMessages() {
             messageSvc.getMessages().then(function(response) {
-                $scope.messages = response.data.data;
+                $scope.messages = response.data.messages;
             });
         }
 
         function getResumes() {
             resumeSvc.getResumes().then(function(response) {
-                $scope.resumes = response.data.data;
+                $scope.resumes = response.data.resumes;
+
+                for (i in $scope.resumes) {
+                    $scope.resumes[i].resume = JSON.parse($scope.resumes[i].resume);
+                    console.log($scope.resumes[i].resume.resume);
+                }
             });
         }
     }
