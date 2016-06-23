@@ -120,6 +120,7 @@ a:hover {
     text-decoration: none !important;
 }
 
+li:focus,
 input:focus {
     outline: none;
 }
