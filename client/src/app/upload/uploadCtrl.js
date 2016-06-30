@@ -4,6 +4,8 @@
 angular.module('rbApp').controller('uploadCtrl', [
     '$scope', '$http', 'resumeSvc', 'authSvc', '$log',
     function($scope, $http, resumeSvc, authSvc, $log) {
+        $scope.uploading = false;
+        $scope.uploaded = false;
         $scope.currentUser = authSvc.user();
         $scope.upload = function() {
             $scope.uploading = true;
@@ -24,14 +26,19 @@ angular.module('rbApp').controller('uploadCtrl', [
                 editedResume: resumeSvc.editResume($scope.resume)
             };
             $log.debug('uploadCtrl: resumeSvc.uploadResume: ' + JSON.stringify(obj));
-            // make service call to node api routes as front doesn't have support for mongoose/mongo
-            resumeSvc.uploadResume(obj).then(function(res) {
-                $log.debug('uploadCtrl: resumeSvc.uploadResume response: ' + JSON.stringify(res.data));
-                $scope.message = res.data.msg;
-                if (!res.data.success) {
+
+            setTimeout(function() { // pausing execution to show loading bar, remove when moving to prod
+                // make service call to node api routes as front doesn't have support for mongoose/mongo
+                resumeSvc.uploadResume(obj).then(function(res) {
+                    $log.debug('uploadCtrl: resumeSvc.uploadResume response: ' + JSON.stringify(res.data));
+                    $scope.message = res.data.msg;
+                    if (res.data.success) {
+                        $scope.uploaded = true;
+                    }
                     $scope.uploading = false;
-                }
-            });
+                });
+            }, 2000);
+
         };
     }
 ]);

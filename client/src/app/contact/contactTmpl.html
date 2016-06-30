@@ -1,7 +1,7 @@
 <md-content id="template-contact" ng-controller="contactCtrl">
     <form name="formContact" ng-submit="send()" class="text-center" novalidate>
         <p><strong>Questions or comments? Leave us a message!</strong></p>
-        <fieldset ng-disabled="submitted">
+        <fieldset ng-disabled="submitting || submitted">
             <div layout="column" layout-align="space-around stretch">
                 <md-input-container class="md-block wow fadeInUp" data-wow-delay="0s">
                     <label>Name</label>
