@@ -12,6 +12,7 @@ angular.module('rbApp').factory('authSvc', [
                     function(res) {
                         var user = {
                             email: res.data.email,
+                            admin: res.data.admin,
                             token: res.data.token
                         };
                         currentUser = user;

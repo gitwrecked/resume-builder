@@ -15,7 +15,7 @@ angular.module('rbApp').controller('navCtrl', [
 
         //TODO check user role instead of just user is logged in
         $scope.isAdmin = function() {
-            return $scope.currentUser;
+            return $scope.currentUser.admin;
         };
 
         $scope.isAuthenticated = function() {

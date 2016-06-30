@@ -60,7 +60,8 @@ api.post('/login', function(req, res) { // takes in user credentials, throw err 
                 success: true,
                 msg: 'logged in ' + user.email + '!',
                 token: token,
-                email: user.email
+                email: user.email,
+                admin: user.admin
             });
         });
 });
