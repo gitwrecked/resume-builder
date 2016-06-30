@@ -5,7 +5,7 @@ angular.module('rbApp').factory('messageSvc', [
         return {
             sendMessage: function(message) {
                 var promise = $http.post('api/message/save', message).then(function(res) {
-                    return res.data;
+                    return res;
                 });
                 return promise;
             }

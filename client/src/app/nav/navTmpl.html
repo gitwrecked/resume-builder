@@ -1,45 +1,37 @@
 <!-- use ng-include to add to pages, included in index.html -->
-<md-toolbar id="main-nav" ng-controller="navCtrl">
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" ui-sref="home">Resume Builder</a>
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span> 
-                  </button>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <!--  add links here -->
-                    <li>
-                        <a ui-sref="about.site">
-                            <i class="fa fa-fw fa-info-circle"></i>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <!--  add links here -->
-                    <li ng-show="!currentUser.email">
-                        <a ui-sref="login">
-                            <i class="fa fa-fw fa-sign-in"></i>&nbsp;Login
-                        </a>
-                    </li>
-                    <li ng-show="currentUser.email">
-                        <a>
-                            <i class="fa fa-fw fa-bell"></i>
-                            <span ng-show="notifications > 0" class="notification-count">1</span>
-                        </a>
-                    </li>
-                    <li ng-show="currentUser.email" ng-click="logout()">
-                        <a>
-                            <i class="fa fa-fw fa-sign-out"></i>&nbsp;Logout {{currentUser.email}}
-                        </a>
-                    </li>
-                </ul>
-
-            </div>
+<md-toolbar id="main-nav" class="md-whiteframe-2dp" layout="row" layout-align="space-around center" ng-controller="navCtrl">
+    <div flex="50" layout="row" layout-align="start center" layout-padding>
+        <a ng-click="showActions()">
+            &lt;RB&gt;
+        </a>
+        <a ui-sref="about.site">
+            <i class="fa fa-fw fa-info-circle"></i>
+        </a>
+    </div>
+    <div flex="50" layout="row" layout-align="end center" layout-padding>
+        <a ui-sref="login" ng-show="!currentUser.email">
+            <i class="fa fa-fw fa-sign-in"></i>&nbsp;Login
+        </a>
+        <div ng-show="currentUser.email">
+            <md-menu md-position-mode="target-right target" id="user-menu" md-menu-origin md-offset="60 0">
+                <a md-menu-origin class="md-icon-button" ng-click="$mdOpenMenu($event)">
+                    <md-icon md-font-icon="fa fa-fw fa-user"></md-icon>
+                    &nbsp;{{currentUser.email}}
+                </a>
+                <md-menu-content md-menu-align-target width="1" layout="column" layout-align="start stretch">
+                    <md-menu-item ng-show="notifications">
+                        <i class="fa fa-bell"></i>
+                        <span ng-show="notifications > 0" class="notification-count">1</span>
+                    </md-menu-item>
+                    <md-menu-item>
+                        <div layout="row" layout-align="center center">
+                            <a ng-click="logout()">
+                                <md-icon md-font-icon="fa fa-sign-out"></md-icon> Logout
+                            </a>
+                        </div>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
         </div>
-    </nav>
+    </div>
 </md-toolbar>

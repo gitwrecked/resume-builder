@@ -1,8 +1,8 @@
 <!-- template for upload, associated controller in same folder -->
-<md-content layout-padding id="template-upload" ng-controller="uploadCtrl">
+<md-content id="template-upload" layout="column" layout-align="space-between stretch" layout-padding ng-controller="uploadCtrl">
     <form id="form-upload" name="formUpload" ng-submit="upload()" class="text-center" novalidate>
         <h1>Resume Upload Form {{currentUser.email}}</h1>
-        <fieldset ng-disabled="uploading">
+        <fieldset ng-disabled="uploading || uploaded">
             <div class="form-group wow fadeInUp" data-wow-delay=".1s">
                 <label>Professional Summary</label>
                 <textarea rows="5" ng-model="resume.summary" class="form-control mdl-textfield__input"></textarea>
