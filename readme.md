@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/gitwrecked/resume-builder.svg?branch=dev)](https://travis-ci.org/gitwrecked/resume-builder)
+
 ## Team: GitWrecked
 
 ### ResumeBuilder
