@@ -1,139 +1,202 @@
 /* fonts */
+
 @import url(https://fonts.googleapis.com/css?family=Monda);
+
 /* palette */
+
+
 /* extends */
+
 .animated {
-  transition: 0.3s; }
+    transition: 0.3s;
+}
+
 
 /* html element styles */
+
 html,
 body {
-  height: 100%;
-  min-height: 100%; }
-  html #main-app,
-  body #main-app {
-    min-height: 100%; }
-    html #main-app #main-app-content,
-    body #main-app #main-app-content {
-      min-height: 100%; }
+    height: 100%;
+    min-height: 100%;
+}
+
+html #main-app,
+body #main-app {
+    min-height: 100%;
+}
+
+html #main-app #main-app-content,
+body #main-app #main-app-content {
+    min-height: 100%;
+}
 
 a {
-  cursor: pointer; }
-  a:focus {
+    cursor: pointer;
+}
+
+a:focus {
     outline: none !important;
-    text-decoration: none !important; }
-  a:hover {
-    text-decoration: none !important; }
+    text-decoration: none !important;
+}
+
+a:hover {
+    text-decoration: none !important;
+}
 
 li:focus,
 input:focus {
-  outline: none; }
+    outline: none;
+}
 
 form {
-  padding: 10px; }
+    padding: 10px;
+}
+
 
 /* custom styles */
+
 #template-actions {
-  min-height: 50%; }
-  #template-actions md-button,
-  #template-actions .md-button {
-    font-size: 20px !important; }
-  #template-actions md-icon,
-  #template-actions .md-icon {
-    font-size: 20px !important; }
+    min-height: 50%;
+}
+
+#template-actions md-button,
+#template-actions .md-button {
+    font-size: 20px !important;
+}
+
+#template-actions md-icon,
+#template-actions .md-icon {
+    font-size: 20px !important;
+}
 
 #footer {
-  background: transparent;
-  bottom: 0;
-  color: #212121;
-  font-size: 10px; }
-  #footer a {
-    color: #212121; }
-  #footer .container {
+    background: transparent;
+    bottom: 0;
+    color: #212121;
+    font-size: 10px;
+}
+
+#footer a {
+    color: #212121;
+}
+
+#footer .container {
     padding-top: 5px;
     padding-left: 15px;
-    padding-right: 15px; }
+    padding-right: 15px;
+}
 
 #main-nav {
-  background: #607D8B; }
-  #main-nav md-icon,
-  #main-nav a {
-    color: #F5F5F5; }
+    background: #607D8B;
+}
+
+#main-nav md-icon,
+#main-nav a {
+    color: #F5F5F5;
+}
 
 #wrap {
-  min-height: 100%;
-  height: 100%;
-  margin: 0 auto -82px 0;
-  padding: 0 0 80px 0; }
-  #wrap .center-container {
+    min-height: 100%;
+    height: 100%;
+    margin: 0 auto -82px 0;
+    padding: 0 0 80px 0;
+}
+
+#wrap .center-container {
     padding: 50px 0 0 0;
-    margin: 0; }
+    margin: 0;
+}
 
 .center-row {
-  height: 50%;
-  width: 100%;
-  display: table-row; }
-  .center-row div {
+    height: 50%;
+    width: 100%;
+    display: table-row;
+}
+
+.center-row div {
     height: 100%;
     width: 50%;
     display: table-cell;
-    border: 1px solid #eee; }
+    border: 1px solid #eee;
+}
 
 .template {
-  transition: .3s; }
+    transition: .3s;
+}
 
 .binding-view {
-  padding: 10px;
-  overflow-wrap: break-word; }
+    padding: 10px;
+    overflow-wrap: break-word;
+}
 
 #template-register,
 #template-login,
 #template-contact {
-  width: 100%;
-  max-width: 350px;
-  margin: auto; }
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+}
 
 #template-about {
-  padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px; }
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
 #form-upload {
-  padding: 10px; }
+    padding: 10px;
+}
 
 #about-content {
-  padding: 10px; }
+    padding: 10px;
+}
+
 
 /* bootstrap overrides */
-.navbar {
-  min-height: 50px !important;
-  margin-bottom: 0 !important; }
 
 .navbar {
-  border-radius: 0px !important; }
+    min-height: 50px !important;
+    margin-bottom: 0 !important;
+}
+
+.navbar {
+    border-radius: 0px !important;
+}
 
 .navbar-brand {
-  font-size: 20px; }
+    font-size: 20px;
+}
+
 
 /* material overrides */
+
 md-menu-item {
-  font-size: 20px; }
-  md-menu-item a {
-    color: #607D8B; }
+    font-size: 20px;
+}
+
+md-menu-item a {
+    color: #607D8B;
+}
 
 md-sidenav {
-  height: 100%; }
+    height: 100%;
+}
 
 md-toolbar {
-  min-height: 50px !important; }
+    min-height: 50px !important;
+}
 
 .md-button,
 md-button {
-  background: #607D8B !important;
-  color: #F5F5F5 !important; }
-  .md-button md-icon,
-  md-button md-icon {
-    color: #F5F5F5 !important; }
+    background: #607D8B !important;
+    color: #F5F5F5 !important;
+}
+
+.md-button md-icon,
+md-button md-icon {
+    color: #F5F5F5 !important;
+}
 
 #template-admin {
-  word-wrap: break-word; }
+    word-wrap: break-word;
+}
