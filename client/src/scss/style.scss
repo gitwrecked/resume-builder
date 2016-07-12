@@ -1,4 +1,197 @@
-/* use @import to pull in other partial style sheets */
+/* fonts */
 
-@import 'palette';
-@import 'main';
+@import url(https://fonts.googleapis.com/css?family=Monda);
+$fontFamilyPrimary: 'Monda',
+sans-serif;
+
+/* palette */
+
+$primary-color-dark: #616161;
+$primary-color: #9E9E9E;
+$primary-color-light: #F5F5F5;
+$primary-color-text: #212121;
+$accent-color: #607D8B;
+$primary-text-color: #212121;
+$secondary-text-color: #727272;
+$divider-color: #B6B6B6;
+$primary-text-size: 20px;
+
+/* extends */
+
+.animated {
+    transition: 0.3s;
+}
+
+
+/* html element styles */
+
+html,
+body {
+    height: 100%;
+    min-height: 100%;
+    #main-app {
+        min-height: 100%;
+        #main-app-content {
+            min-height: 100%;
+        }
+    }
+}
+
+a {
+    cursor: pointer;
+    &:focus {
+        outline: none !important;
+        text-decoration: none !important;
+    }
+    &:hover {
+        text-decoration: none !important;
+    }
+}
+
+li:focus,
+input:focus {
+    outline: none;
+}
+
+form {
+    padding: 10px;
+}
+
+
+/* custom styles */
+
+#template-actions {
+    min-height: 50%;
+    md-button,
+    .md-button {
+        font-size: $primary-text-size !important;
+    }
+    md-icon,
+    .md-icon {
+        font-size: $primary-text-size !important;
+    }
+}
+
+#footer {
+    background: transparent;
+    bottom: 0;
+    color: $primary-text-color;
+    font-size: 10px;
+    a {
+        color: $primary-text-color;
+    }
+    .container {
+        padding-top: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+#main-nav {
+    background: $accent-color;
+    md-icon,
+    a {
+        color: $primary-color-light;
+    }
+}
+
+#wrap {
+    min-height: 100%;
+    height: 100%;
+    margin: 0 auto -82px 0;
+    padding: 0 0 80px 0;
+    .center-container {
+        padding: 50px 0 0 0;
+        margin: 0;
+    }
+}
+
+.center-row {
+    height: 50%;
+    width: 100%;
+    display: table-row;
+    div {
+        height: 100%;
+        width: 50%;
+        display: table-cell;
+        border: 1px solid #eee;
+    }
+}
+
+.template {
+    transition: .3s;
+}
+
+.binding-view {
+    padding: 10px;
+    overflow-wrap: break-word;
+}
+
+#template-register,
+#template-login,
+#template-contact {
+    width: 100%;
+    max-width: 350px;
+    margin: auto;
+}
+
+#template-about {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#form-upload {
+    padding: 10px;
+}
+
+#about-content {
+    padding: 10px;
+}
+
+
+/* bootstrap overrides */
+
+.navbar {
+    min-height: 50px !important;
+    margin-bottom: 0 !important;
+}
+
+.navbar {
+    border-radius: 0px !important;
+}
+
+.navbar-brand {
+    font-size: $primary-text-size;
+}
+
+
+/* material overrides */
+
+md-menu-item {
+    font-size: $primary-text-size;
+    a {
+        color: $accent-color;
+    }
+}
+
+md-sidenav {
+    height: 100%;
+}
+
+md-toolbar {
+    min-height: 50px !important;
+}
+
+.md-button,
+md-button {
+    background: $accent-color !important;
+    color: $primary-color-light !important;
+    md-icon {
+        color: $primary-color-light !important;
+    }
+}
+
+#template-admin {
+    word-wrap: break-word;
+}

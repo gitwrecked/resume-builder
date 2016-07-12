@@ -1,0 +1,8 @@
+<md-bottom-sheet id="template-actions" class="md-grid" layout="column" ng-controller="actionsCtrl" ng-cloak>
+    <h4 layout="row" layout-align="center start">Available Actions:</h4>
+    <div layout="column" layout-sm="row" layout-align="center center">
+        <md-button ng-repeat="action in actions" ui-sref="{{action.action}}" ng-click="close()">
+            <md-icon md-font-icon="{{action.icon}}"></md-icon> &nbsp; {{action.name}}
+        </md-button>
+    </div>
+</md-bottom-sheet>
