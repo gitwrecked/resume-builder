@@ -12,6 +12,10 @@ var userSchema = new mongoose.Schema({ // mongoose schema to hold doc structure
         type: String,
         required: true
     },
+    admin: {
+        type: Boolean,
+        default: false
+    },
     created_at: Date,
     updated_at: Date
 });

@@ -196,3 +196,7 @@ md-button {
 md-button md-icon {
     color: #F5F5F5 !important;
 }
+
+#template-admin {
+    word-wrap: break-word;
+}

@@ -24,5 +24,12 @@ angular.module('rbApp').controller('navCtrl', [
                 clickOutsideToClose: true
             });
         };
+        $scope.isAdmin = function() {
+            return $scope.currentUser.admin;
+        };
+
+        $scope.isAuthenticated = function() {
+            return $scope.currentUser;
+        };
     }
 ]);

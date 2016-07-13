@@ -36,8 +36,8 @@ app.get('/', function(req, res) { // basic route to display landing
     res.sendFile(path.join(static, 'src/index.html'));
 });
 app.use('/api/auth', require('server/api/authApi')); //configure app routes for api calls
-app.use('/api/message', require('server/api/messageApi'));
-app.use('/api/resume', require('server/api/resumeApi')); // authenticated routes
+app.use('/api/messages', require('server/api/messageApi'));
+app.use('/api/resumes', require('server/api/resumeApi')); // authenticated routes
 
 var port = process.env.PORT || config.server.listenPort; // set our port
 app.listen(port); // start app 	

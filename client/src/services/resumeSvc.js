@@ -8,15 +8,25 @@ angular.module('rbApp').factory('resumeSvc', [
         return {
             // make get call to retrieve user resumes, need associated route in node/express routes
             getResumes: function() {
-                $log.debug('getResumes: not implemented yet');
+                var promise = $http.get('/api/resumes').then(
+                    function(res) {
+                        return res;
+                    });
+                return promise;
             },
             // make get call to retrieve one user resume, need associated route in node/express routes
-            getResume: function(user) {
-                $log.debug('getResume: not implemented yet');
+            // TODO can user upload more then one resume??? How to determine which resume to retrieve?
+            // TODO should probably change query to search by email instead of id
+            getResume: function(id) {
+                var promise = $http.get('/api/resumes/' + id).then(
+                    function(res) {
+                        return res;
+                    });
+                return promise;
             },
             // make post call to upload resume, need associated route in node/express routes
             uploadResume: function(resume) {
-                var promise = $http.post('/api/resume/upload', resume).then(
+                var promise = $http.post('/api/resumes/upload', resume).then(
                     function(res) {
                         return res;
                     });
@@ -36,8 +46,12 @@ angular.module('rbApp').factory('resumeSvc', [
                 return jsonData;
             },
             // make post call to delete resume, need associated route in node/express routes
-            deleteResume: function(resume) {
-                $log.debug('deleteResume: not implemented yet');
+            deleteResume: function(id) {
+                var promise = $http.delete('/api/resumes/' + id).then(
+                    function(res) {
+                        return res;
+                    });
+                return promise;
             },
             cycleMap: function(resumeSnippet, wordInString) {
                 globalMap.forEach(function(value, key) {

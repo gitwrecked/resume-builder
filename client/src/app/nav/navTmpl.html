@@ -7,6 +7,10 @@
         <a ui-sref="about.site">
             <i class="fa fa-fw fa-info-circle"></i>
         </a>
+        <div ng-show="isAuthenticated()">
+            <!-- links for authenticated users -->
+            <a ui-sref="admin"><i class="fa" ng-show="isAdmin()"></i>Admin</a>
+        </div>
     </div>
     <div flex="50" layout="row" layout-align="end center" layout-padding>
         <a ui-sref="login" ng-show="!currentUser.email">
