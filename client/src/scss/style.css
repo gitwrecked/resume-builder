@@ -200,3 +200,8 @@ md-button md-icon {
 #template-admin {
     word-wrap: break-word;
 }
+
+.layout-max-width {
+    width: 100%;
+    max-width: 1200px;
+}
