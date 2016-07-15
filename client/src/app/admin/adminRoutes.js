@@ -4,8 +4,8 @@ angular.module('rbApp').config([
         $stateProvider
             .state('admin', {
                 url: '/admin',
-                templateUrl: 'src/app/admin/adminTmpl.html',
-                controller: 'adminCtrl'
+                templateUrl: 'src/app/admin/adminTmpl.html'
+                    // controller: 'adminCtrl'
             })
             .state('admin.dashboard', {
                 url: '/dashboard',
