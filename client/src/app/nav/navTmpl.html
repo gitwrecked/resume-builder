@@ -9,10 +9,10 @@
         </a>
         <div>
             <md-menu id="admin-menu" ng-show="isAuthenticated()" ng-controller="adminCtrl">
-                <md-button ng-click="$mdOpenMenu($event)">Admin</md-button>
+                <a ng-click="$mdOpenMenu($event)"><i class="fa"></i>Admin</a>
                 <md-menu-content>
                     <md-menu-item ng-repeat="action in actions">
-                        <md-button ui-sref="{{action.sref}}">{{action.name}}</md-button>
+                        <a ui-sref="{{action.sref}}"><i class="fa"></i>{{action.name}}</a>
                     </md-menu-item>
                 </md-menu-content>
             </md-menu>

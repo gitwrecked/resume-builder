@@ -5,7 +5,6 @@ angular.module('rbApp').config([
             .state('admin', {
                 url: '/admin',
                 templateUrl: 'src/app/admin/adminTmpl.html'
-                    // controller: 'adminCtrl'
             })
             .state('admin.dashboard', {
                 url: '/dashboard',
