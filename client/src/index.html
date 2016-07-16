@@ -19,8 +19,8 @@
 <body ng-app="rbApp" ng-controller="mainCtrl">
     <div ng-include="'src/app/nav/navTmpl.html'"></div>
     <div id="main-app" layout="column" md-theme="rb-default" ng-cloak flex>
-        <div id="main-app-content" layout="column" layout-align="start stretch" layout-padding>
-            <div ui-view layout="row" layout-align="center start" layout-padding></div>
+        <div id="main-app-content" layout="column" layout-align="start stretch">
+            <div ui-view layout="row" layout-align="center start" layout-wrap></div>
         </div>
     </div>
     <div ng-include="'src/partials/footerTmpl.html'"></div>
@@ -59,6 +59,8 @@
     <script src="/src/app/main/mainRoutes.js"></script>
     <script src="/src/app/admin/adminRoutes.js"></script>
     <script src="/src/app/admin/adminCtrl.js"></script>
+    <script src="/src/app/admin/messages/adminMessagesCtrl.js"></script>
+    <script src="/src/app/admin/resumes/adminResumesCtrl.js"></script>
     <!-- endinject -->
 </body>
 

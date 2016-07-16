@@ -7,9 +7,15 @@
         <a ui-sref="about.site">
             <i class="fa fa-fw fa-info-circle"></i>
         </a>
-        <div ng-show="isAuthenticated()">
-            <!-- links for authenticated users -->
-            <a ui-sref="admin"><i class="fa" ng-show="isAdmin()"></i>Admin</a>
+        <div>
+            <md-menu id="admin-menu" ng-show="isAuthenticated()" ng-controller="adminCtrl">
+                <a ng-click="$mdOpenMenu($event)"><i class="fa"></i>Admin</a>
+                <md-menu-content>
+                    <md-menu-item ng-repeat="action in actions">
+                        <a ui-sref="{{action.sref}}"><i class="fa"></i>{{action.name}}</a>
+                    </md-menu-item>
+                </md-menu-content>
+            </md-menu>
         </div>
     </div>
     <div flex="50" layout="row" layout-align="end center" layout-padding>
