@@ -38,6 +38,7 @@ app.get('/', function(req, res) { // basic route to display landing
 app.use('/api/auth', require('server/api/authApi')); //configure app routes for api calls
 app.use('/api/messages', require('server/api/messageApi'));
 app.use('/api/resumes', require('server/api/resumeApi')); // authenticated routes
+app.use('/api/users', require('server/api/userApi')); //api for list of users
 
 var port = process.env.PORT || config.server.listenPort; // set our port
 app.listen(port); // start app 	
