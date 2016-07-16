@@ -5,6 +5,7 @@ var express = require('express'); // modules
 var User = require('server/models/user');
 var jwt = require('jsonwebtoken');
 var config = require('server/config');
+var bcrypt = require('bcrypt-nodejs'); //bcrypt module
 
 var api = express.Router();
 
@@ -36,8 +37,7 @@ api.post('/register', function(req, res) { // takes in user details, save if ema
 
 api.post('/login', function(req, res) { // takes in user credentials, throw err if user doesn't exist
     User.findOne({
-            email: req.body.email,
-            password: req.body.password
+            email: req.body.email
         },
         function(err, user) {
             if (err) {
@@ -51,6 +51,12 @@ api.post('/login', function(req, res) { // takes in user credentials, throw err 
                     msg: 'check your email/password...'
                 });
             }
+            if (!bcrypt.compareSync(req.body.password, user.password)) {
+                return res.json({
+                    msg: 'check your email/password...'
+                });
+            }
+
             var token = jwt.sign({
                 user: user.email
             }, config.server.secret, { // create token from secret and user

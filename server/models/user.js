@@ -2,6 +2,7 @@
 // contains the structure of the backend user object.
 // need to define a schema and associated model(collection) to implement
 var mongoose = require('mongoose'); // grab the mongoose module
+var bcrypt = require('bcrypt-nodejs'); //bcrypt module
 var userSchema = new mongoose.Schema({ // mongoose schema to hold doc structure
     email: {
         type: String,
@@ -39,6 +40,12 @@ userSchema.pre('save', function(next) { // pre save method to add date fields
     if (!this.created_at) {
         this.created_at = currentDate;
     }
+    next();
+});
+
+userSchema.pre('save', function(next) {
+    this.password = bcrypt.hashSync(this.password);
+
     next();
 });
 
