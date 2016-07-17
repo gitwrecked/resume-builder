@@ -13,7 +13,8 @@ angular.module('rbApp').factory('authSvc', [
                         var user = {
                             email: res.data.email,
                             admin: res.data.admin,
-                            token: res.data.token
+                            token: res.data.token,
+                            password: res.data.password
                         };
                         currentUser = user;
                         $cookies.put('currentUser', JSON.stringify(user));
