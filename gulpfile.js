@@ -73,18 +73,24 @@ gulp.task('inject', function() { // task to read css and lib directories, add cs
     return gulp.src('client/src/index.html')
         .pipe(inject(
             gulp.src([
+                'client/lib/**/*min.js',
                 'client/src/**/*.js',
-                'client/lib/**/*min.js'
+                '!**/modules/**/*.js',
+                '!**/layouts/**/*.js'
             ]), {
-                relative: false
+                relative: false,
+                ignorePath: 'client/'
             }))
         .pipe(gulp.dest('client/src'))
         .pipe(inject(
             gulp.src([
+                'client/lib/**/*min.css',
                 'client/src/scss/**/*.css',
-                'client/lib/**/*min.css'
+                '!**/modules/**/*.css',
+                '!**/layouts/**/*.css'
             ]), {
-                relative: false
+                relative: false,
+                ignorePath: 'client/'
             }))
         .pipe(gulp.dest('client/src'));
 });
