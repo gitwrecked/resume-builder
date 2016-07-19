@@ -7,7 +7,10 @@ var resumeSchema = new mongoose.Schema({ // mongoose schema to hold doc structur
         type: String,
         required: true
     },
-    resume: String,
+    summary: String,
+    qualifications: String,
+    experience: String,
+    education: String,
     ver: Number,
     created_at: Date,
     updated_at: Date

@@ -3,6 +3,7 @@
 // need to define a schema and associated model(collection) to implement
 var mongoose = require('mongoose'); // grab the mongoose module
 var bcrypt = require('bcrypt-nodejs'); //bcrypt module
+var ResumeProfile = require('server/models/resumeProfile');
 var userSchema = new mongoose.Schema({ // mongoose schema to hold doc structure
     email: {
         type: String,
@@ -17,6 +18,7 @@ var userSchema = new mongoose.Schema({ // mongoose schema to hold doc structure
         type: Boolean,
         default: false
     },
+    resumeProfile: [ResumeProfile],
     created_at: Date,
     updated_at: Date
 });
