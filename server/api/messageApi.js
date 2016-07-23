@@ -2,6 +2,8 @@
 // restful api routes for any backend calls
 // front end does not connect to mongo libraries, therefore api routes needed
 var express = require('express'); // modules 
+var jwt = require('jsonwebtoken');
+var config = require('server/config');
 var Message = require('server/models/message');
 
 var api = express.Router();
@@ -26,6 +28,28 @@ api.post('/', function(req, res) { // add user message to db
             });
         }
     });
+});
+
+// authentication block, 
+// place api routes that do not need to be authenticated above this
+api.use(function(req, res, next) {
+    var token = req.headers.rb_token;
+    if (token) {
+        jwt.verify(token, config.server.secret, function(err, decoded) {
+            if (err) {
+                return res.json({
+                    msg: 'you must be logged in to perform this function...'
+                });
+            } else {
+                req.decoded = decoded;
+                next();
+            }
+        });
+    } else {
+        return res.json({
+            msg: 'you must be logged in to perform this function...'
+        });
+    }
 });
 
 //retrieve all messages

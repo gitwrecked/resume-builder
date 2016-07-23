@@ -8,7 +8,12 @@ angular.module('rbApp').factory('authSvc', [
         return {
             // make post call to create new user, need associated route in node/express routes
             login: function(user) {
-                var promise = $http.post('/api/auth/login', user).then( // make http request to node api
+                var req = {
+                    method: 'POST',
+                    url: '/api/auth/login/',
+                    data: user
+                };
+                var promise = $http(req).then( // make http request to node api
                     function(res) {
                         var user = {
                             email: res.data.email,
@@ -22,9 +27,13 @@ angular.module('rbApp').factory('authSvc', [
                     });
                 return promise;
             },
-            // make get call to retrieve user, need associated route in node/express routes
             register: function(user) {
-                var promise = $http.post('/api/auth/register', user).then(
+                var req = {
+                    method: 'POST',
+                    url: '/api/auth/register/',
+                    data: user
+                };
+                var promise = $http(req).then(
                     function(res) {
                         var user = {
                             email: res.data.email,
@@ -47,7 +56,22 @@ angular.module('rbApp').factory('authSvc', [
             logout: function() {
                 currentUser = {};
                 $cookies.remove('currentUser');
-
+            },
+            isAuthenticated: function() {
+                try {
+                    currentUser = JSON.parse($cookies.get('currentUser'));
+                    return currentUser ? true : false;
+                } catch (err) {
+                    return false;
+                }
+            },
+            isAdmin: function() {
+                try {
+                    currentUser = JSON.parse($cookies.get('currentUser'));
+                    return currentUser.admin ? true : false;
+                } catch (err) {
+                    return false;
+                }
             }
         };
     }

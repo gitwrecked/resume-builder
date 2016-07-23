@@ -6,10 +6,19 @@ angular.module('rbApp').factory('userSvc', [
     function($http, $log) {
         return {
             // make post call to create new user, need associated route in node/express routes
-            retrieveUsers: function() {
-                var promise = $http.get('/api/users/').then( // make http request to node api
+            retrieveUsers: function(user) {
+                var req = {
+                    method: 'GET',
+                    url: '/api/users/',
+                    headers: {
+                        'rb_token': user.token
+                    }
+                };
+                $log.debug('userSvc.retrieveUsers request: ' + JSON.stringify(req));
+                var promise = $http(req).then( // make http request to node api
                     function(res) {
-                        return res;
+                        $log.debug('userSvc.retrieveUsers response: ' + JSON.stringify(res.data));
+                        return res.data;
                     });
                 return promise;
             }

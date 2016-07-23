@@ -1,0 +1,26 @@
+<!-- template for resumes display, associated controller in same folder -->
+<md-content id="template-resumes" ng-controller="resumesCtrl" layout-padding layout="column" layout-align="start center">
+    <h1 class="wow fadeIn">Resumes</h1>
+    <md-grid-list md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="3" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px" layout-gt-md="column" layout-md="column" layout="column" layout-align="center center" layout-wrap>
+        <md-card ng-repeat="resume in resumes" layout-padding layout="column" layout-align="center center" flex class="md-whiteframe-4dp wow fadeIn">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-title">
+                        {{user.email}}
+                    </span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p> Email: {{resume.email}} </p>
+                <p> Resume: {{resume.resume}} </p>
+                <p> Summary: {{resume.resume.summary}} </p>
+                <p> Qualifications: {{resume.resume.qualifications}} </p>
+                <p> Experience: {{resume.resume.experience}} </p>
+                <p> Education: {{resume.resume.education}} </p>
+            </md-card-content>
+            <md-card-actions layout="row">
+                <md-button class="md-block md-raised" ng-click="deleteResume(resume)"><i class="fa"></i>Delete</md-button>
+            </md-card-actions>
+        </md-card>
+    </md-grid-list>
+</md-content>

@@ -1,0 +1,22 @@
+<!-- template for messages display, associated controller in same folder -->
+<md-content id="template-messages" ng-controller="messagesCtrl" layout-padding layout="column" layout-align="start center">
+    <h1 class="wow fadeIn">Messages</h1>
+    <md-grid-list md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="3" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px" layout-gt-md="column" layout-md="column" layout="column" layout-align="center center" layout-wrap>
+        <md-card ng-repeat="message in messages" layout="column" layout-align="center center" flex class="md-whiteframe-4dp wow fadeIn">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-title">
+                    	{{message.name}}
+                    </span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-content>
+                <p> Email: {{message.email}} </p>
+                <p> Message: {{message.message}} </p>
+            </md-card-content>
+            <md-card-actions layout="column">
+                <md-button class="md-block md-raised" ng-click="deleteMessage(message)"><i class="fa"></i>Delete</md-button>
+            </md-card-actions>
+        </md-card>
+    </md-grid-list>
+</md-content>
