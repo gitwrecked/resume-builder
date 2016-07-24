@@ -20,7 +20,6 @@ angular.module('rbApp').controller('uploadCtrl', [
                 return;
             }
             var obj = {
-                token: $scope.currentUser.token,
                 email: $scope.currentUser.email,
                 resume: $scope.resume,
                 editedResume: resumeSvc.editResume($scope.resume)
@@ -29,10 +28,10 @@ angular.module('rbApp').controller('uploadCtrl', [
 
             setTimeout(function() { // pausing execution to show loading bar, remove when moving to prod
                 // make service call to node api routes as front doesn't have support for mongoose/mongo
-                resumeSvc.uploadResume(obj).then(function(res) {
-                    $log.debug('uploadCtrl: resumeSvc.uploadResume response: ' + JSON.stringify(res.data));
-                    $scope.message = res.data.msg;
-                    if (res.data.success) {
+                resumeSvc.uploadResume(obj, $scope.currentUser).then(function(res) {
+                    $log.debug('uploadCtrl: resumeSvc.uploadResume response: ' + JSON.stringify(res));
+                    $scope.message = res.msg;
+                    if (res.success) {
                         $scope.uploaded = true;
                     }
                     $scope.uploading = false;
