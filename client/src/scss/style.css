@@ -55,20 +55,6 @@ form {
 
 /* custom styles */
 
-#template-actions {
-    min-height: 50%;
-}
-
-#template-actions md-button,
-#template-actions .md-button {
-    font-size: 20px !important;
-}
-
-#template-actions md-icon,
-#template-actions .md-icon {
-    font-size: 20px !important;
-}
-
 #footer {
     background: transparent;
     bottom: 0;
@@ -129,12 +115,36 @@ form {
     overflow-wrap: break-word;
 }
 
+#template-resumes,
+#template-messages,
 #template-register,
 #template-login,
-#template-contact {
+#template-contact,
+#template-about,
+#template-resumes,
+#template-upload,
+#template-users,
+#template-admin {
     width: 100%;
-    max-width: 350px;
     margin: auto;
+    overflow-wrap: break-word;
+}
+
+#template-upload,
+#template-contact,
+#template-about,
+#template-resumes,
+#template-users {
+    max-width: 800px;
+}
+
+#template-users md-card,
+#template-users .md-card,
+#template-resumes md-card,
+#template-resumes .md-card,
+#template-messages md-card,
+#template-messages .md-card {
+    width: 400px;
 }
 
 #template-about {
@@ -143,8 +153,30 @@ form {
     padding-right: 20px;
 }
 
-#form-upload {
-    padding: 10px;
+#template-register,
+#template-login {
+    max-width: 400px;
+}
+
+#template-actions {
+    width: 100%;
+    margin: auto;
+    min-height: 50%;
+}
+
+#template-actions md-button,
+#template-actions .md-button {
+    font-size: 20px !important;
+}
+
+#template-actions md-icon,
+#template-actions .md-icon {
+    font-size: 20px !important;
+}
+
+#template-actions md-card,
+#template-actions .md-card {
+    width: 400px;
 }
 
 #about-content {
@@ -195,8 +227,4 @@ md-button {
 .md-button md-icon,
 md-button md-icon {
     color: #F5F5F5 !important;
-}
-
-#template-admin {
-    word-wrap: break-word;
 }

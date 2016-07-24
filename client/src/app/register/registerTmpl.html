@@ -4,7 +4,7 @@
         {{ loginform.$valid }}
         <fieldset ng-disabled="registering || registered">
             <div layout="column" layout-align="space-around stretch">
-                <md-input-container class="md-block wow fadeInUp" data-wow-delay="0s">
+                <md-input-container class="md-block wow fadeIn">
                     <label>Email</label>
                     <input name="email" type="email" ng-model="user.email" required>
                     <md-icon md-font-icon="fa fa-envelope-o"></md-icon>
@@ -13,7 +13,7 @@
                         <p ng-message="email">Not a valid email!</p>
                     </div>
                 </md-input-container>
-                <md-input-container class="md-block wow fadeInUp" data-wow-delay=".1s">
+                <md-input-container class="md-block wow fadeIn">
                     <label>Password</label>
                     <input name="password" ng-model="user.password" type="password" ng-minlength="3" ng-trim="false" ng-pattern="/^[a-zA-Z0-9]*$/" required>
                     <md-icon md-font-icon="fa fa-unlock-alt"></md-icon>
@@ -23,7 +23,7 @@
                         <p ng-message="minlength">Password is too short!</p>
                     </div>
                 </md-input-container>
-                <md-input-container class="md-block wow fadeInUp" data-wow-delay=".2s">
+                <md-input-container class="md-block wow fadeIn">
                     <label>Confirm Password</label>
                     <input name="confirmPassword" ng-model="user.confirmPassword" type="password" ng-pattern="{{user.password}}" required>
                     <md-icon md-font-icon="fa fa-unlock-alt"></md-icon>
@@ -35,7 +35,7 @@
             </div>
             <md-progress-linear md-mode="indeterminate" ng-show="registering"></md-progress-linear>
             <div layout="column" layout-align="center center">
-                <md-button class="md-block md-raised wow fadeInUp" type="submit" data-wow-delay=".3s" ng-disabled="!formRegister.$valid">
+                <md-button class="md-block md-raised wow fadeIn" type="submit" ng-disabled="!formRegister.$valid">
                     <i class="fa fa-fw fa-sign-in"></i>&nbsp;Register
                 </md-button>
 
@@ -43,7 +43,7 @@
         </fieldset>
         <div class="text-center">{{message}}</div>
     </form>
-    <div class="text-center binding-view wow fadeInUp" data-wow-delay=".4s">
+    <div class="text-center binding-view wow fadeIn" layout-padding>
         {{ user }}
     </div>
 </md-content>

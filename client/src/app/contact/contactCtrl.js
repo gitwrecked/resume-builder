@@ -9,14 +9,12 @@ angular.module('rbApp').controller('contactCtrl', [
         $scope.send = function() {
             $scope.submitting = true;
             $scope.contact.date = Date.now();
-            $log.debug('contactCtrl: messageSvc.sendMessage: ' + JSON.stringify($scope.contact));
             setTimeout(function() { // pausing execution to show loading bar, remove when moving to prod
                 messageSvc.sendMessage($scope.contact).then(function(res) {
-                    if (res.data.success) {
+                    if (res.success) {
                         $scope.submitted = true;
                     }
-                    $scope.response = res.data;
-                    $log.debug('contactCtrl: messageSvc.sendMessage response: ' + JSON.stringify(res));
+                    $scope.response = res;
                     $scope.contact = "";
                     $scope.formContact.$setPristine();
                     $scope.formContact.$setUntouched();

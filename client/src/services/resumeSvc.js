@@ -7,28 +7,73 @@ angular.module('rbApp').factory('resumeSvc', [
         var globalMap;
         return {
             // make get call to retrieve user resumes, need associated route in node/express routes
-            getResumes: function() {
-                var promise = $http.get('/api/resumes').then(
+            getResumes: function(user) {
+                var req = {
+                    method: 'GET',
+                    url: '/api/resumes/',
+                    headers: {
+                        'rb_token': user.token
+                    }
+                };
+                $log.debug('resumeSvc.getResumes request: ' + JSON.stringify(req));
+                var promise = $http(req).then(
                     function(res) {
-                        return res;
+                        $log.debug('resumeSvc.getResumes response: ' + JSON.stringify(res.data));
+                        return res.data;
                     });
                 return promise;
             },
             // make get call to retrieve one user resume, need associated route in node/express routes
             // TODO can user upload more then one resume??? How to determine which resume to retrieve?
             // TODO should probably change query to search by email instead of id
-            getResume: function(id) {
-                var promise = $http.get('/api/resumes/' + id).then(
+            getResume: function(id, user) {
+                var req = {
+                    method: 'GET',
+                    url: '/api/resumes/'.concat(id),
+                    headers: {
+                        'rb_token': user.token
+                    }
+                };
+                $log.debug('resumeSvc.getResume request: ' + JSON.stringify(req));
+                var promise = $http(req).then(
                     function(res) {
-                        return res;
+                        $log.debug('resumeSvc.getResume response: ' + JSON.stringify(res.data));
+                        return res.data;
                     });
                 return promise;
             },
             // make post call to upload resume, need associated route in node/express routes
-            uploadResume: function(resume) {
-                var promise = $http.post('/api/resumes/upload', resume).then(
+            uploadResume: function(resume, user) {
+                var req = {
+                    method: 'POST',
+                    url: '/api/resumes/',
+                    headers: {
+                        'rb_token': user.token
+                    },
+                    data: resume
+                };
+                $log.debug('resumeSvc.uploadResume request: ' + JSON.stringify(req));
+                var promise = $http(req).then(
                     function(res) {
-                        return res;
+                        $log.debug('resumeSvc.uploadResume response: ' + JSON.stringify(res.data));
+                        return res.data;
+                    });
+                return promise;
+            },
+            // make post call to delete resume, need associated route in node/express routes
+            deleteResume: function(id, user) {
+                var req = {
+                    method: 'DELETE',
+                    url: '/api/resumes/'.concat(id),
+                    headers: {
+                        'rb_token': user.token
+                    }
+                };
+                $log.debug('resumeSvc.deleteResume request: ' + JSON.stringify(req));
+                var promise = $http(req).then(
+                    function(res) {
+                        $log.debug('resumeSvc.deleteResume response: ' + JSON.stringify(res.data));
+                        return res.data;
                     });
                 return promise;
             },
@@ -44,14 +89,6 @@ angular.module('rbApp').factory('resumeSvc', [
                     jsonData[key] = resumeSnippet;
                 }
                 return jsonData;
-            },
-            // make post call to delete resume, need associated route in node/express routes
-            deleteResume: function(id) {
-                var promise = $http.delete('/api/resumes/' + id).then(
-                    function(res) {
-                        return res;
-                    });
-                return promise;
             },
             cycleMap: function(resumeSnippet, wordInString) {
                 globalMap.forEach(function(value, key) {

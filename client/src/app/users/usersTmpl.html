@@ -1,0 +1,20 @@
+<!-- template for users display, associated controller in same folder -->
+<md-content id="template-users" ng-controller="usersCtrl" layout-padding layout="column" layout-align="start center">
+    <h1 class="wow fadeIn">Users</h1>
+    <md-grid-list md-cols="1" md-cols-sm="2" md-cols-md="3" md-cols-gt-md="3" md-row-height-gt-md="1:1" md-row-height="4:3" md-gutter="8px" md-gutter-gt-sm="4px" layout-gt-md="row" layout-md="column" layout="column" layout-align="center center" layout-wrap>
+        <md-card ng-repeat="user in users" layout="column" layout-align="center center" flex class="md-whiteframe-4dp wow fadeIn">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-title">
+                    	{{user.email}}
+                    </span>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="column">
+                <md-button class="md-icon-button" aria-label="Upload" href="#/upload">
+                    <md-icon md-font-icon="fa fa-fw fa-user"></md-icon>
+                </md-button>
+            </md-card-actions>
+        </md-card>
+    </md-grid-list>
+</md-content>
