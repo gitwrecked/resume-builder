@@ -1,9 +1,10 @@
+<!-- template for contact section, associated controller in same folder -->
 <md-content id="template-contact" ng-controller="contactCtrl">
     <form name="formContact" ng-submit="send()" class="text-center" novalidate>
         <p><strong>Questions or comments? Leave us a message!</strong></p>
         <fieldset ng-disabled="submitting || submitted">
             <div layout="column" layout-align="space-around stretch">
-                <md-input-container class="md-block wow fadeInUp" data-wow-delay="0s">
+                <md-input-container class="md-block wow fadeIn">
                     <label>Name</label>
                     <input name="name" ng-model="contact.name" ng-trim="false" ng-pattern="/^[a-zA-Z0-9]*$/" required>
                     <md-icon md-font-icon="fa fa-user"></md-icon>
@@ -12,7 +13,7 @@
                         <p ng-message="pattern">Name can only contain alpha-numeric characters!</p>
                     </div>
                 </md-input-container>
-                <md-input-container class="md-block wow fadeInUp" data-wow-delay=".1s">
+                <md-input-container class="md-block wow fadeIn">
                     <label>Email</label>
                     <input name="email" type="email" ng-model="contact.email" ng-trim="false" required>
                     <md-icon md-font-icon="fa fa-envelope-o"></md-icon>
@@ -21,7 +22,7 @@
                         <p ng-message="email">Not a valid email!</p>
                     </div>
                 </md-input-container>
-                <md-input-container class="md-block wow fadeInUp" data-wow-delay=".2s">
+                <md-input-container class="md-block wow fadeIn">
                     <label>Message</label>
                     <textarea name="message" ng-model="contact.message" rows="5" md-maxlength="150" md-select-on-focus required></textarea>
                     <md-icon md-font-icon="fa fa-comment-o"></md-icon>
@@ -32,11 +33,11 @@
             </div>
             <md-progress-linear md-mode="indeterminate" ng-show="submitting"></md-progress-linear>
             <div layout="row" layout-align="center center">
-                <md-button class="md-block md-raised wow fadeInUp" type="submit" data-wow-delay=".3s" ng-disabled="!formContact.$valid">
+                <md-button class="md-block md-raised wow fadeIn" type="submit" ng-disabled="!formContact.$valid">
                     <i class="fa fa-fw fa-share"></i>&nbsp;Submit
                 </md-button>
             </div>
-            <div class="wow fadeInUp text-center" data-wow-delay=".4s">
+            <div class="wow fadeIn text-center">
                 <div class="binding-view">Form is Valid? {{formContact.$valid}}</div>
             </div>
         </fieldset>
