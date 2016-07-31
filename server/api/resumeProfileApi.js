@@ -12,13 +12,13 @@ var api = express.Router();
 // authentication block, 
 // place api routes that do not need to be authenticated above this
 api.use(function(req, res, next) {
-    var token = req.body.token;
+    var token = req.headers.rb_token;
     if (token) {
         jwt.verify(token, config.server.secret, function(err, decoded) {
             if (err) {
                 res.status(401);
                 return res.json({
-                    msg: 'you must register before running this function...'
+                    msg: 'you must login before running this function...'
                 });
             } else {
                 req.decoded = decoded;
@@ -28,7 +28,7 @@ api.use(function(req, res, next) {
     } else {
         res.status(401);
         return res.json({
-            msg: 'you must register before running this function...'
+            msg: 'you must login before running this function...'
         });
     }
 });
@@ -71,14 +71,14 @@ api.get('/:email', function(req, res) {
     });
 });
 
+//api for creating new resume profile
 api.post('/', function(req, res) {
     var profile = new ResumeProfile({
         email: req.body.email,
         profileName: req.body.profileName,
+        resume: req.body.resume,
+        edited: req.body.edited
     });
-
-    profile.resume.push(req.body.resume);
-    profile.edited.push(req.body.edited);
 
     profile.save(function(err) {
         if (err) {
@@ -91,7 +91,29 @@ api.post('/', function(req, res) {
         } else {
             return res.json({
                 success: true,
-                msg: 'resume profile saved successfully!'
+                msg: 'resume profile saved successfully...'
+            });
+        }
+    });
+});
+
+api.put('/', function(req, res) {
+    var query = {
+        email: req.body.email,
+        profileName: req.body.profileName
+    };
+
+    ResumeProfile.findOneAndUpdate(query, req.body, function(err) {
+        if (err) {
+            console.error(err);
+            res.status(500);
+            return res.json({
+                msg: err.message
+            })
+        } else {
+            return res.json({
+                success: true,
+                msg: 'resume profile updated successfully...'
             });
         }
     });

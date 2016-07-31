@@ -9,10 +9,10 @@ var resume = new mongoose.Schema({
     summary: String,
     qualifications: String,
     experience: String,
-    education: String,
-    ver: Number,
-    created_at: Date,
-    updated_at: Date
+    education: String
+    // ver: Number,
+    // created_at: Date,
+    // updated_at: Date
 });
 
 //Resume Profile mongoose schema
@@ -26,10 +26,10 @@ var resumeProfileSchema = new mongoose.Schema({
         required: true
     },
     resume: {
-        type: [resume]
+        type: resume
     },
     edited: {
-        type: [resume]
+        type: resume
     },
     created_at: Date,
     updated_at: Date

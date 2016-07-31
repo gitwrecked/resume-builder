@@ -3,14 +3,11 @@
 // need to define a schema and associated model to implement
 var mongoose = require('mongoose'); // grab the mongoose module
 var resumeSchema = new mongoose.Schema({ // mongoose schema to hold doc structure
-    // email: {
-    //     type: String,
-    //     required: true
-    // },
-    summary: String,
-    qualifications: String,
-    experience: String,
-    education: String,
+    email: {
+        type: String,
+        required: true
+    },
+    resume: String,
     ver: Number,
     created_at: Date,
     updated_at: Date
