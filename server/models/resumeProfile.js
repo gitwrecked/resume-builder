@@ -10,9 +10,7 @@ var resume = new mongoose.Schema({
     qualifications: String,
     experience: String,
     education: String
-    // ver: Number,
-    // created_at: Date,
-    // updated_at: Date
+    //TODO add versioning to resume???
 });
 
 //Resume Profile mongoose schema
@@ -57,6 +55,16 @@ resumeProfileSchema.pre("save", function(next) {
     if (!this.created_at) {
         this.created_at = currentDate;
     }
+    next();
+});
+
+//update the timestamps for every update
+resumeProfileSchema.pre("findOneAndUpdate", function(next) {
+    this.update({}, {
+        $set: {
+            updated_at: new Date()
+        }
+    });
     next();
 });
 
