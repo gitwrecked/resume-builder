@@ -59,7 +59,7 @@ resumeProfileSchema.pre("save", function(next) {
 });
 
 //update the timestamps for every update
-resumeProfileSchema.pre("findOneAndUpdate", function(next) {
+resumeProfileSchema.pre("update", function(next) {
     this.update({}, {
         $set: {
             updated_at: new Date()

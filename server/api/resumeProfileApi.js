@@ -16,8 +16,7 @@ api.use(function(req, res, next) {
     if (token) {
         jwt.verify(token, config.server.secret, function(err, decoded) {
             if (err) {
-                res.status(401);
-                return res.json({
+                return res.status(401).json({
                     msg: 'you must login before running this function...'
                 });
             } else {
@@ -26,22 +25,30 @@ api.use(function(req, res, next) {
             }
         });
     } else {
-        res.status(401);
-        return res.json({
+        return res.statues(401).json({
             msg: 'you must login before running this function...'
         });
     }
 });
 
-//retrieve all resumes profiles
+//retrieve all resumes profiles or filter by email
 api.get('/', function(req, res) {
-    ResumeProfile.find(function(err, profiles) {
+
+    var conditions = {};
+
+    //if query parameter is given, only retrieve profiles by email
+    if (req.query.email) {
+        conditions = {
+            email: atob(req.query.email)
+        };
+    }
+
+    ResumeProfile.find(conditions, function(err, profiles) {
         if (err) {
             console.error(err);
-            res.status(500);
-            return res.json({
+            return res.status(500).json({
                 success: false,
-                msg: 'failed to retrieve all resume profiles'
+                msg: 'failed to retrieve resume profiles...'
             });
         }
         return res.json({
@@ -51,17 +58,14 @@ api.get('/', function(req, res) {
     });
 });
 
-//retrieve resume profile using email in base64
-api.get('/:email', function(req, res) {
-    ResumeProfile.find({
-        'email': atob(req.params.email)
-    }, function(err, profile) {
+//retrieve resume profile by profile id
+api.get('/:profile_id', function(req, res) {
+    ResumeProfile.findById(req.params.profile_id, function(err, profile) {
         if (err) {
             console.error(err);
-            res.status(500);
-            return res.json({
+            return res.status(500).json({
                 success: false,
-                msg: 'failed to retrieve profile'
+                msg: 'failed to retrieve profile...'
             });
         }
         return res.json({
@@ -83,10 +87,8 @@ api.post('/', function(req, res) {
     profile.save(function(err) {
         if (err) {
             console.error(err);
-            res.status(500);
-            return res.json({
-                // msg: 'failed to save resume profile...'
-                msg: err.message
+            return res.status(500).json({
+                msg: 'unable to create new resume profile...'
             })
         } else {
             return res.json({
@@ -97,18 +99,15 @@ api.post('/', function(req, res) {
     });
 });
 
-api.put('/', function(req, res) {
-    var query = {
-        email: req.body.email,
-        profileName: req.body.profileName
-    };
-
-    ResumeProfile.findOneAndUpdate(query, req.body, function(err) {
+//Update an existing Resume Profile
+api.put('/:profile_id', function(req, res) {
+    ResumeProfile.where({
+        _id: req.params.profile_id
+    }).update(req.body, function(err) {
         if (err) {
             console.error(err);
-            res.status(500);
-            return res.json({
-                msg: err.message
+            return res.status(500).json({
+                msg: 'unable to update resume profile...'
             })
         } else {
             return res.json({
