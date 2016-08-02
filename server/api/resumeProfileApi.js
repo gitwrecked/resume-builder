@@ -89,7 +89,7 @@ api.post('/', function(req, res) {
             console.error(err);
             return res.status(500).json({
                 msg: 'unable to create new resume profile...'
-            })
+            });
         } else {
             return res.json({
                 success: true,
@@ -108,7 +108,7 @@ api.put('/:profile_id', function(req, res) {
             console.error(err);
             return res.status(500).json({
                 msg: 'unable to update resume profile...'
-            })
+            });
         } else {
             return res.json({
                 success: true,

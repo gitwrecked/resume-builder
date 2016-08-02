@@ -10,7 +10,7 @@ var resume = new mongoose.Schema({
     qualifications: String,
     experience: String,
     education: String
-    //TODO add versioning to resume???
+        //TODO add versioning to resume???
 });
 
 //Resume Profile mongoose schema
