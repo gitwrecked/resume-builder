@@ -1,0 +1,68 @@
+<md-content id="template-main" ng-controller="mainCtrl">
+    <section id="section-header" layout="row" layout-align="center center" class="wow fadeIn">
+        <i class="wow fadeInUp fa fa-fw fa-5x fa-file-o"></i>
+        <h1 class="text-center">Resume Builder!</h1>
+        <i class="wow fadeInUp fa fa-fw fa-5x fa-file-o"></i>
+    </section>
+    <section id="section-about" layout="row" layout-align-xs="column" layout-align="center center" class="wow fadeIn">
+        <div layout-padding class="wow fadeInUp">
+            <h2>What Is Resume Builder?</h2>
+            <p>This tool for IT professionals who want to get ahead of the curve when it comes to showing off your professional persona, specifically your Resume! </p>
+        </div>
+        <div layout-padding class="wow fadeInDown">
+            <h2>What Can It Do For Me?</h2>
+            <p>We can help you proofread, edit, improve, and even recreate your resume using other mediums like PDFs, Websites, etc. </p>
+        </div>
+    </section>
+    <section id="section-features" class="wow fadeIn" layout-padding>
+        <md-grid-list md-cols="2" md-cols-xs="1" md-cols-sm="2" md-cols-md="3" md-cols-lg="4" md-cols-gt-lg="5" md-row-height="4:3">
+            <md-grid-tile>
+                <div layout="column" layout-align="top center" layout-padding class="wow bounceIn">
+                    <i class="fa fa-fw fa-5x fa-check-square"></i>
+                    <h4>Proofreading</h4>
+                </div>
+            </md-grid-tile>
+            <md-grid-tile>
+                <div layout="column" layout-align="top center" layout-padding class="wow bounceIn">
+                    <i class="fa fa-fw fa-5x fa-check-square"></i>
+                    <h4>Formatting</h4>
+                </div>
+            </md-grid-tile>
+            <md-grid-tile>
+                <div layout="column" layout-align="top center" layout-padding class="wow bounceIn">
+                    <i class="fa fa-fw fa-5x fa-check-square"></i>
+                    <h4>Wording Suggestions</h4>
+                </div>
+            </md-grid-tile>
+            <md-grid-tile>
+                <div layout="column" layout-align="top center" layout-padding class="wow bounceIn">
+                    <i class="fa fa-fw fa-5x fa-check-square"></i>
+                    <h4>Analytics</h4>
+                </div>
+            </md-grid-tile>
+            <md-grid-tile>
+                <div layout="column" layout-align="top center" layout-padding class="wow bounceIn">
+                    <i class="fa fa-fw fa-5x fa-check-square"></i>
+                    <h4>Personal Review</h4>
+                </div>
+            </md-grid-tile>
+            <md-grid-tile>
+                <div layout="column" layout-align="top center" layout-padding class="wow bounceIn">
+                    <i class="fa fa-fw fa-5x fa-check-square"></i>
+                    <h4>Export to Template</h4>
+                </div>
+            </md-grid-tile>
+        </md-grid-list>
+    </section>
+    <section id="section-get-started" layout="column" layout-align="center center" class="wow fadeIn">
+        <h2>What are you waiting for?</h2>
+        <br>
+        <md-button ui-sref="{{isAuthenticated() ? 'actions' : 'register'}}" class="md-block md-raised wow fadeIn">
+            <i class="fa fa-fw fa-sign-in"></i>&nbsp;Get Started!
+        </md-button>
+    </section>
+    <section id="section-contact" layout="column" layout-align="center center" class="wow fadeIn">
+        <h1>Contact Us</h1>
+        <div ng-include="'src/app/contact/contactTmpl.html'"></div>
+    </section>
+</md-content>

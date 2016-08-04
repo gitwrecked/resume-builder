@@ -115,6 +115,32 @@ form {
     overflow-wrap: break-word;
 }
 
+#template-main {
+    section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    #section-header {
+        min-height: 100%;
+    }
+    #section-about {
+        color: $primary-color-light;
+        background: $primary-color;
+        p {
+            margin: auto;
+        }
+    }
+    #section-features {
+        text-align: center;
+    }
+    #section-get-started {
+        color: $primary-color-light;
+        background: $primary-color;
+    }
+    #section-contact {}
+}
+
+#template-main,
 #template-resumes,
 #template-messages,
 #template-register,
