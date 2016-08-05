@@ -7,7 +7,7 @@ angular.module('rbApp').config([
         $stateProvider
             .state('home', {
                 url: '/home',
-                templateUrl: 'src/app/upload/uploadTmpl.html'
+                templateUrl: 'src/app/main/mainTmpl.html'
             });
     }
 ]);
