@@ -5,7 +5,6 @@ var express = require('express'); // modules
 var jwt = require('jsonwebtoken');
 var config = require('server/config');
 var Resume = require('server/models/resume');
-
 var api = express.Router();
 
 // authentication block, 
@@ -15,7 +14,7 @@ api.use(function(req, res, next) {
     if (token) {
         jwt.verify(token, config.server.secret, function(err, decoded) {
             if (err) {
-                return res.json({
+                return res.status(401).json({
                     msg: 'you must be logged in to perform this function...'
                 });
             } else {
@@ -24,31 +23,34 @@ api.use(function(req, res, next) {
             }
         });
     } else {
-        return res.json({
+        return res.status(401).json({
             msg: 'you must be logged in to perform this function...'
         });
     }
 });
 
 //retrieve all resumes
-api.get('/', function(req, res) {
-    Resume.find(function(err, resumes) {
-        if (err) {
-            console.error(err);
-            return res.json({
-                success: false,
-                msg: 'failed to retrieve all resumes'
-            });
-        }
-        return res.json({
-            success: true,
-            resumes: resumes
-        });
-    });
-});
+// api.get('/', function(req, res) {
+
+//     var conditions = {};
+//     var projections;
+
+//     Resume.find(function(err, resumes) {
+//         if (err) {
+//             console.error(err);
+//             return res.json({
+//                 success: false,
+//                 msg: 'failed to retrieve all resumes'
+//             });
+//         }
+//         return res.json({
+//             success: true,
+//             resumes: resumes
+//         });
+//     });
+// });
 
 //retrieve resume based on ID
-//TODO change to email instead, currently won't have much use
 api.get('/:resume_id', function(req, res) {
     Resume.findById(req.params.resume_id, function(err, resume) {
         if (err) {
@@ -65,24 +67,24 @@ api.get('/:resume_id', function(req, res) {
     });
 });
 
-api.delete('/:resume_id', function(req, res) {
-    Resume.remove({
-        _id: req.params.resume_id
-    }, function(err, resume) {
-        if (err) {
-            console.error(err);
-            return res.json({
-                success: false,
-                msg: 'unable to delete resume'
-            });
-        } else {
-            return res.json({
-                success: true,
-                msg: 'successfully deleted resume'
-            });
-        }
-    });
-});
+// api.delete('/:resume_id', function(req, res) {
+//     Resume.remove({
+//         _id: req.params.resume_id
+//     }, function(err, resume) {
+//         if (err) {
+//             console.error(err);
+//             return res.json({
+//                 success: false,
+//                 msg: 'unable to delete resume'
+//             });
+//         } else {
+//             return res.json({
+//                 success: true,
+//                 msg: 'successfully deleted resume'
+//             });
+//         }
+//     });
+// });
 
 api.post('/', function(req, res) {
     var newResume = new Resume({
@@ -93,12 +95,37 @@ api.post('/', function(req, res) {
         if (err) {
             console.error(err);
             return res.json({
-                msg: 'failed to upload resume...'
+                msg: err.message
             });
         }
         return res.json({
             success: true,
-            msg: 'resume upload successful'
+            msg: err.message
+        });
+    });
+});
+
+api.put('/:resume_id', function(req, res) {
+
+    var conditions = {
+        _id: req.params.resume_id
+    };
+
+    var options = {
+        runValidators: true
+    }
+
+    Resume.update(conditions, req.body, options, function(err) {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({
+                success: false,
+                msg: err.message
+            });
+        }
+        return res.json({
+            success: true,
+            msg: 'resume updated successfully...'
         });
     });
 });
