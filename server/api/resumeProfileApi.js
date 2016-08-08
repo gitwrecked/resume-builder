@@ -38,10 +38,12 @@ api.use(function(req, res, next) {
 // retrieve the resume profile resource
 // conditions allow data to be retrieved based on field value
 // projections allows returned data to be filtered to specific elements
+// populate allows api to return object for referenced documents
 api.get('/', function(req, res) {
 
     var conditions = {};
     var projections;
+    var populate = ''; //default population to return id's only for referenced documents
 
     //if query parameter is given, only retrieve profiles by email
     if (req.query.email) {
@@ -50,11 +52,16 @@ api.get('/', function(req, res) {
 
     //only return requested data
     if (req.query.projections) {
-        projections = atob(req.query.projections)
+        projections = atob(req.query.projections);
+    }
+
+    //populate requested fields
+    if (req.query.populate) {
+        populate = atob(req.query.populate);
     }
 
     ResumeProfile.find(conditions, projections)
-        .populate('originalResume modifiedResume')
+        .populate(populate)
         .exec(function(err, profiles) {
             if (err) {
                 console.error(err);
@@ -142,6 +149,40 @@ api.put('/:profile_id', function(req, res) {
                 resumeProfile: update
             });
         }
+    });
+});
+
+// Remove profile and associated Resume documents
+api.delete('/:profile_id', function(req, res) {
+
+    var profile;
+
+    ResumeProfile.findOne({
+        _id: req.params.profile_id
+    }).then(function(res) {
+        profile = res;
+        return Resume.remove({
+            _id: profile.originalResume
+        });
+    }).then(function() {
+        return Resume.remove({
+            _id: profile.modifiedResume
+        });
+    }).then(function() {
+        return ResumeProfile.remove({
+            _id: profile._id
+        });
+    }).then(function() {
+        return res.json({
+            success: true,
+            msg: 'successfully removed profile'
+        });
+    }).catch(function(err) {
+        console.log(err);
+        return res.status(500).json({
+            success: false,
+            msg: err.message
+        });
     });
 });
 
