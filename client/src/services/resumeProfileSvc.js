@@ -15,9 +15,34 @@ angular.module('rbApp').factory('resumeProfileSvc', [
                 };
                 $log.debug('resumeProfileSvc.getProfile request: ' + JSON.stringify(req));
                 var promise = $http(req).then(
-                    function(res) {
+                    function successCallback(res) {
                         $log.debug('resumeProfileSvc.getProfile response: ' + JSON.stringify(res.data));
                         return res.data;
+                    },
+                    function failCallback(res) {
+                        $log.error('resumeProfileSvc.getProfile error: ' + JSON.stringify(res.data));
+                        return new Error('request failed');
+                    });
+                return promise;
+            },
+            getProfiles: function(user, conditions) {
+                var req = {
+                    method: 'GET',
+                    url: '/api/resumeProfiles',
+                    headers: {
+                        'rb_token': user.token
+                    },
+                    params: conditions
+                };
+                $log.debug('resumeProfileSvc.getProfiles req: ' + JSON.stringify(req));
+                var promise = $http(req).then(
+                    function successCallback(res) {
+                        $log.debug('resumeProfileSvc.getProfiles res: ' + JSON.stringify(res.data));
+                        return res.data;
+                    },
+                    function failCallback(res) {
+                        $log.error('resumeProfileSvc.getProfiles err: ' + JSON.stringify(res.data));
+                        return new Error('request failed');
                     });
                 return promise;
             }

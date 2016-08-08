@@ -72,7 +72,7 @@ api.get('/', function(req, res) {
             }
             return res.json({
                 success: true,
-                profiles: [profiles]
+                profiles: profiles
             });
         });
 });
@@ -175,7 +175,7 @@ api.delete('/:profile_id', function(req, res) {
     }).then(function() {
         return res.json({
             success: true,
-            msg: 'successfully removed profile'
+            msg: 'successfully removed profile...'
         });
     }).catch(function(err) {
         console.log(err);

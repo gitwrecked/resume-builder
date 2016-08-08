@@ -176,6 +176,25 @@ form {
     }
 }
 
+#template-resume-profiles {
+    width: 100%;
+    margin: auto;
+    min-height: 50%;
+    max-width: 800px;
+    md-button,
+    .md-button {
+        font-size: $primary-text-size !important;
+    }
+    md-icon,
+    .md-icon {
+        font-size: $primary-text-size !important;
+    }
+    md-card,
+    .md-card {
+        width: 400px;
+    }
+}
+
 #about-content {
     padding: 10px;
 }

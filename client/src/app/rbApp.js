@@ -15,7 +15,7 @@ angular.module('rbApp', [
         $mdThemingProvider.theme('rb-default')
             .primaryPalette('grey')
             .accentPalette('light-blue');
-        $logProvider.debugEnabled(false); // set to false when deploying to prod 
+        $logProvider.debugEnabled(true); // set to false when deploying to prod 
     })
     .run(function($rootScope, $state, authSvc) {
         $rootScope.$on("$stateChangeStart", function(event, toState, toParams, fromState, fromParams) {
