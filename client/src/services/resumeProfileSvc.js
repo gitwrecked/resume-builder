@@ -8,7 +8,7 @@ angular.module('rbApp').factory('resumeProfileSvc', [
             getProfile: function(profileId, user) {
                 var req = {
                     method: 'GET',
-                    url: '/api/resumeProfiles/' + profileId,
+                    url: '/api/resumeProfiles/'.concat(profileId),
                     headers: {
                         'rb_token': user.token
                     }
@@ -21,7 +21,7 @@ angular.module('rbApp').factory('resumeProfileSvc', [
                     },
                     function failCallback(res) {
                         $log.error('resumeProfileSvc.getProfile error: ' + JSON.stringify(res.data));
-                        return new Error('request failed');
+                        throw new Error('request failed');
                     });
                 return promise;
             },
@@ -29,10 +29,10 @@ angular.module('rbApp').factory('resumeProfileSvc', [
                 var req = {
                     method: 'GET',
                     url: '/api/resumeProfiles',
+                    params: conditions,
                     headers: {
                         'rb_token': user.token
-                    },
-                    params: conditions
+                    }
                 };
                 $log.debug('resumeProfileSvc.getProfiles req: ' + JSON.stringify(req));
                 var promise = $http(req).then(
@@ -42,7 +42,7 @@ angular.module('rbApp').factory('resumeProfileSvc', [
                     },
                     function failCallback(res) {
                         $log.error('resumeProfileSvc.getProfiles err: ' + JSON.stringify(res.data));
-                        return new Error('request failed');
+                        throw new Error('request failed');
                     });
                 return promise;
             }

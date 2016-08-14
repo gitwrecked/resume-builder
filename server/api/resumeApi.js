@@ -56,7 +56,7 @@ api.put('/:resume_id', function(req, res) {
         runValidators: true
     };
 
-    Resume.update(conditions, req.body, options, function(err) {
+    Resume.update(conditions, req.body, options, function(err, update) {
         if (err) {
             console.error(err);
             return res.status(500).json({
@@ -66,7 +66,8 @@ api.put('/:resume_id', function(req, res) {
         }
         return res.json({
             success: true,
-            msg: 'resume updated successfully...'
+            msg: 'resume updated successfully...',
+            resume: update
         });
     });
 });

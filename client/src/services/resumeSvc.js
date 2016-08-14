@@ -24,8 +24,6 @@ angular.module('rbApp').factory('resumeSvc', [
                 return promise;
             },
             // make get call to retrieve one user resume, need associated route in node/express routes
-            // TODO can user upload more then one resume??? How to determine which resume to retrieve?
-            // TODO should probably change query to search by email instead of id
             getResume: function(id, user) {
                 var req = {
                     method: 'GET',
@@ -36,9 +34,12 @@ angular.module('rbApp').factory('resumeSvc', [
                 };
                 $log.debug('resumeSvc.getResume request: ' + JSON.stringify(req));
                 var promise = $http(req).then(
-                    function(res) {
+                    function sucssessCallback(res) {
                         $log.debug('resumeSvc.getResume response: ' + JSON.stringify(res.data));
                         return res.data;
+                    }, function errorCallback(res) {
+                        $log.error('resumeSvc.getResume failed: ' + JSON.stringify(res.data));
+                        throw new Error(res.data.msg);
                     });
                 return promise;
             },
@@ -60,23 +61,44 @@ angular.module('rbApp').factory('resumeSvc', [
                     });
                 return promise;
             },
-            // make post call to delete resume, need associated route in node/express routes
-            deleteResume: function(id, user) {
+            updateResume: function(resume, user) {
                 var req = {
-                    method: 'DELETE',
-                    url: '/api/resumes/'.concat(id),
+                    method: 'PUT',
+                    url: '/api/resumes/'.concat(resume._id),
                     headers: {
                         'rb_token': user.token
-                    }
-                };
-                $log.debug('resumeSvc.deleteResume request: ' + JSON.stringify(req));
+                    },
+                    data: resume
+                }
+                $log.debug('modifying resume: ' + JSON.stringify(req));
                 var promise = $http(req).then(
-                    function(res) {
-                        $log.debug('resumeSvc.deleteResume response: ' + JSON.stringify(res.data));
+                    function successCallback(res) {
+                        $log.debug('successfully modified: ' + JSON.stringify(res.data));
                         return res.data;
+                    },
+                    function failedCallback(res) {
+                        $log.error('failed to update: ' + JSON.stringify(res.data));
+                        throw new Error(res.data.msg);
                     });
                 return promise;
             },
+            // make post call to delete resume, need associated route in node/express routes
+            // deleteResume: function(id, user) {
+            //     var req = {
+            //         method: 'DELETE',
+            //         url: '/api/resumes/'.concat(id),
+            //         headers: {
+            //             'rb_token': user.token
+            //         }
+            //     };
+            //     $log.debug('resumeSvc.deleteResume request: ' + JSON.stringify(req));
+            //     var promise = $http(req).then(
+            //         function(res) {
+            //             $log.debug('resumeSvc.deleteResume response: ' + JSON.stringify(res.data));
+            //             return res.data;
+            //         });
+            //     return promise;
+            // },
             editResume: function(resume) {
                 var jsonData = {};
                 //lazy loading 
