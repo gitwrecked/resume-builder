@@ -24,6 +24,6 @@ angular.module('rbApp').controller('resumeProfilesCtrl', [
         $scope.selectedProfile = function(profile) {
             $log.debug('selected resume profile name: ' + profile.profileName);
             resumeProfileSvc.selectedProfile = profile;
-        }
+        };
     }
 ]);

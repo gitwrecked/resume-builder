@@ -37,7 +37,8 @@ angular.module('rbApp').factory('resumeSvc', [
                     function sucssessCallback(res) {
                         $log.debug('resumeSvc.getResume response: ' + JSON.stringify(res.data));
                         return res.data;
-                    }, function errorCallback(res) {
+                    },
+                    function errorCallback(res) {
                         $log.error('resumeSvc.getResume failed: ' + JSON.stringify(res.data));
                         throw new Error(res.data.msg);
                     });
@@ -69,7 +70,7 @@ angular.module('rbApp').factory('resumeSvc', [
                         'rb_token': user.token
                     },
                     data: resume
-                }
+                };
                 $log.debug('modifying resume: ' + JSON.stringify(req));
                 var promise = $http(req).then(
                     function successCallback(res) {
