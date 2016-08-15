@@ -5,9 +5,10 @@ angular.module('rbApp').config([
     function($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('resume', {
-                url: '/resume',
+                url: '/resume/:profileId',
                 templateUrl: 'src/app/resume/resumeTmpl.html',
-                admin: false // protected route for admins only
+                controller: 'resumeCtrl',
+                admin: false
             });
     }
 ]);

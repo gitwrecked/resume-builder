@@ -1,6 +1,6 @@
 <!-- template for resumes display, associated controller in same folder -->
-<md-content id="template-resume" flex ng-controller="resumeCtrl">
-    <h1 class="wow fadeIn md-display-1" layout-padding flex>Profile Name: {{profile.profileName}}</h1>
+<md-content id="template-resume" flex class="wow fadeIn">
+    <h1 class="md-display-1" layout-padding flex>Profile Name: {{profile.profileName}}</h1>
     <md-tabs>
         <md-tab ng-repeat="tab in tabs" label="{{tab.title}}">
             <md-content class="md-padding">

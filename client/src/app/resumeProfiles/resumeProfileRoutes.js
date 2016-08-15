@@ -7,7 +7,7 @@ angular.module('rbApp').config([
             .state('resumeProfiles', {
                 url: '/resumeProfiles',
                 templateUrl: 'src/app/resumeProfiles/resumeProfileTmpl.html',
-                admin: false // protected route for admins only
+                admin: false
             });
     }
 ]);

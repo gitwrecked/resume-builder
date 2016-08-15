@@ -20,10 +20,5 @@ angular.module('rbApp').controller('resumeProfilesCtrl', [
                 $log.error('error calling service: ' + err.message);
             });
         }
-
-        $scope.selectedProfile = function(profile) {
-            $log.debug('selected resume profile name: ' + profile.profileName);
-            resumeProfileSvc.selectedProfile = profile;
-        };
     }
 ]);
