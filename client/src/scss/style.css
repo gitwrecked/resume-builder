@@ -137,6 +137,14 @@ form {
     text-align: center;
 }
 
+#template-main #section-features .feature-tile {
+    transition: .3s;
+}
+
+#template-main #section-features .feature-tile:hover {
+    transform: scale(1.3);
+}
+
 #template-main #section-get-started {
     color: #F5F5F5;
     background: #9E9E9E;
